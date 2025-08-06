@@ -1,0 +1,30 @@
+.header {
+    display: flex;
+    border: 1px solid #000;
+    border-radius: 5px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    color: #fff;
+    background-color: #ed7c87;
+    padding: 10px;
+    width: 15%;
+    height: 90vh;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+
+    & .navbar{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        border-left: 1px solid #000;
+        padding: 10px;
+        margin: 10px 0;
+
+        & .items-menu {
+            margin: 3px;
+        }
+
+    }
+}
