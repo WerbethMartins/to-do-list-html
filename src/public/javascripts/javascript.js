@@ -38,6 +38,7 @@ function displayTasks(tasks) {
             <p class="card-description">${task.descricao}</p>
             <div class="card-footer">
                 <p class="card-date">Criado em: sem data</p>
+                <p class="card-status">${task.concluida ? 'Concluída' : 'Em progresso'}</p>
                 <button class="card-button" data-task-id="${task.id}">
                     ${task.concluida ? 'Desfazer' : 'Completar'}
                 </button>
@@ -96,15 +97,15 @@ function setupTaskForm() {
             event.preventDefault();
 
             // Pega os valores do formulário usando os IDs
-            const title = document.getElementById('taskTitle').value;
-            const description = document.getElementById('taskDescription').value;
+            const titulo = document.getElementById('taskTitle').value;
+            const descricao = document.getElementById('taskDescription').value;
 
             // Verifica se os campos estão preenchidos
-            if (title && description) {
+            if (titulo && descricao) {
                 const newTaskData = {
-                    title: title,
-                    descricao: description,
-                    completed: false 
+                    titulo: titulo,
+                    descricao: descricao,
+                    concluida: false 
                 }
                 
                 postTask(newTaskData);

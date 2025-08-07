@@ -25,6 +25,11 @@
 }
 .header .navbar .items-menu {
   margin: 3px;
+  transition: all 0.3s ease;
+}
+.header .navbar .items-menu:hover {
+  transform: scale(1.05);
+  color: #61b4f8;
 }
 
 * {
@@ -213,6 +218,10 @@ a {
 .card .card-footer .card-date {
   font-size: 0.8em;
   color: #888;
+}
+.card .card-footer .card-status {
+  font-size: 0.8em;
+  color: #58c8e4;
 }
 .card .card-footer .card-button {
   background-color: #ed7c87;

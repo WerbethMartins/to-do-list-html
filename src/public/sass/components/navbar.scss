@@ -24,6 +24,12 @@
 
         & .items-menu {
             margin: 3px;
+            transition: all 0.3s ease;
+        }
+
+        & .items-menu:hover {
+            transform: scale(1.05);
+            color: #61b4f8;
         }
 
     }

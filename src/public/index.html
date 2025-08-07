@@ -12,10 +12,10 @@
     <header id="header" class="header">
       <h1>To Do List</h1>
       <nav id="navbar" class="navbar">
-        <a href="#" class="items-menu">Dashboard</a>
-        <a href="#" class="items-menu">My tasks</a>
-        <a href="#" class="items-menu">Settings</a>
-        <a href="#" class="items-menu">Help</a>
+        <a href="#" class="items-menu "><i class="bi bi-columns"></i> Dashboard</a>
+        <a href="#" class="items-menu"><i class="bi bi-card-list"></i> My tasks</a>
+        <a href="#" class="items-menu"><i class="bi bi-gear"></i> Settings</a>
+        <a href="#" class="items-menu"><i class="bi bi-info-square"></i> Help</a>
       </nav>
     </header>
     <main id="main" class="container hero">
@@ -32,8 +32,8 @@
         <article id="create-task" class="create-task-section">
           <h2 class="create-task-title bi bi-clipboard"> Crie uma tarefa</h2>
           <form action="" id="task-form" class="task-form">
-            <label for="taskTitulo"> Titulo:</label>
-            <input type="text" name="taskTitulo" id="taskTitle" class="task-input" 
+            <label for="taskTitle"> Titulo:</label>
+            <input type="text" name="taskTitle" id="taskTitle" class="task-input" 
             placeholder="Digite o titulo da tarefa" required>
 
             <label for="taskDescription"> Descrição:</label>
@@ -42,10 +42,12 @@
 
             <div class="task-status">
               <label for="task-completed">Status:</label>
-              <p class="task-status-paragraph">Em progresso</p>
+              <p id="task-completed" class="task-status-paragraph">
+                <!-- Será adicionada com javascript -->
+              </p>
             </div>
 
-            <button type="submit" id="confirmTaskButton" class="btn ">Criar Tarefa</button>
+            <button type="submit" id="confirmTaskButton" class="btn task-submit-button">Criar Tarefa</button>
             <button type="button" id="cancelTaskButton" class="btn task-cancel-button">Cancelar</button>
           </form>
         </article>
