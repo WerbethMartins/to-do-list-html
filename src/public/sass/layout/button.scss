@@ -1,0 +1,19 @@
+.btn {
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    padding: 3px;
+    margin: 2px 0;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+.task-submit-button {
+    background-color: #ed7c87;
+    color: white;
+    font-size: 0.8em;
+}

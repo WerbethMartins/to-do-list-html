@@ -24,22 +24,45 @@
         <article id="tasks" class="tasks">
           <div class="task-header">
             <h2 class="task-title bi bi-clipboard"> Tasks</h2>
-            <button id="addTaskList" class="task-button"><i class="bi bi-plus-circle"></i> Add Task</button>
+            <button id="addTaskButton" class="task-button"><i class="bi bi-plus-circle"></i> Add Task</button>
           </div>
           <p class="task-date">10-02-2014</p>
-
         </article>
-        <article class="task-status">
-          <h2 class="status-title bi bi-clipboard"> Task status</h2>
-          <div class="status-card">
-            <h3 class="status-card-title">Total Tasks</h3>
-            <p class="status-card-value">10</p>
+
+        <article id="create-task" class="create-task-section">
+          <h2 class="create-task-title bi bi-clipboard"> Crie uma tarefa</h2>
+          <form action="" id="task-form" class="task-form">
+            <label for="taskTitulo"> Titulo:</label>
+            <input type="text" name="taskTitulo" id="taskTitle" class="task-input" 
+            placeholder="Digite o titulo da tarefa" required>
+
+            <label for="taskDescription"> Descrição:</label>
+            <input type="text" name="taskDescription" id="taskDescription" class="task-input" 
+            placeholder="Digite a descrição da tarefa" required>
+
+            <div class="task-status">
+              <label for="task-completed">Status:</label>
+              <p class="task-status-paragraph">Em progresso</p>
+            </div>
+
+            <button type="submit" id="confirmTaskButton" class="btn ">Criar Tarefa</button>
+            <button type="button" id="cancelTaskButton" class="btn task-cancel-button">Cancelar</button>
+          </form>
+        </article>
+        <article class="task-information-section">
+          <h2 class="information-title bi bi-clipboard"> Task status</h2>
+          <div class="information-card">
+            <h3 class="information-card-title">Total Tasks</h3>
+            <p class="information-card-value"></p>
           </div>
         </article>
       </section>
     </main>
   </section>
   
+  <!-- Jquery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>  
+
   <script src="javascripts/javascript.js"></script>
 </body>
 </html>

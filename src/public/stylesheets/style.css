@@ -47,6 +47,14 @@ a {
   color: inherit;
 }
 
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
 .main-title {
   font-size: 1em;
   text-align: center;
@@ -74,6 +82,7 @@ a {
   border: none;
   border-radius: 5px;
   padding: 5px;
+  margin-right: 5px;
   width: 50%;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
@@ -109,33 +118,71 @@ a {
   margin-bottom: 10px;
   width: 15%;
 }
-.hero .dashboard .task-status {
+.hero .dashboard .create-task-section {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  margin-right: 5px;
+  width: 30%;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+.hero .dashboard .create-task-section .create-task-title {
+  font-size: 1.2em;
+  color: #ed7c87;
+  margin-bottom: 10px;
+}
+.hero .dashboard .create-task-section input {
+  border: none;
+  padding: 3px;
+  margin: 2px 0;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+.hero .dashboard .create-task-section .task-status {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.hero .dashboard .create-task-section .task-status p {
+  font-size: 0.8em;
+  color: #61b4f8;
+  margin: 0 5px;
+}
+.hero .dashboard .create-task-section .task-status .completed {
+  font-size: 0.8em;
+  color: #87f861;
+}
+.hero .dashboard .task-information-section {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  border: 1px solid #000;
+  border: none;
   border-radius: 5px;
   padding: 5px;
   width: 20%;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
-.hero .dashboard .task-status .status-title {
+.hero .dashboard .task-information-section .information-title {
   font-size: 1.2em;
   color: #ed7c87;
   margin-bottom: 10px;
 }
-.hero .dashboard .task-status .status-card {
+.hero .dashboard .task-information-section .information-card {
   display: flex;
   flex-direction: row;
   padding: 5px;
 }
-.hero .dashboard .task-status .status-card .status-card-title {
+.hero .dashboard .task-information-section .information-card .information-card-title {
   font-size: 1em;
   color: #333;
   margin-bottom: 10px;
 }
-.hero .dashboard .task-status .status-card .status-card-value {
+.hero .dashboard .task-information-section .information-card .information-card-value {
   font-size: 1em;
   color: #ed7c87;
   margin: 0 10px;
@@ -185,6 +232,26 @@ a {
 .card:hover {
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
   transform: scale(1.02);
+}
+
+.btn {
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  padding: 3px;
+  margin: 2px 0;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.task-submit-button {
+  background-color: #ed7c87;
+  color: white;
+  font-size: 0.8em;
 }
 
 /*# sourceMappingURL=style.css.map */

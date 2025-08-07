@@ -1,4 +1,5 @@
-@use 'components/navbar';
-@use 'global/resets';
+@use 'components/navbar.scss';
+@use 'global/resets.scss';
 @use 'layout/layout.scss';
 @use 'layout/card.scss';
+@use 'layout/button.scss';
