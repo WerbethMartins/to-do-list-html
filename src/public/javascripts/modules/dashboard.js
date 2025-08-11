@@ -1,26 +1,40 @@
-// scripts/main.js
+export function debounce(func, wait, immediate) {
+    let timeout;
+    return function(...args) {
+        const context = this;
+        const later = function () {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+        };
+        const callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+    };
+}
 
-// Função para buscar tarefas da API
-async function fetchTasks() {
-    const apiUrl = 'http://localhost:8081/api/tarefas'; 
+// Função para buscar tarefa da API
+export async function fetchTasks() {
+    const apiUrl = 'http://localhost:8081/api/tarefas';
 
     try {
         const response = await fetch(apiUrl);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+        if(!response.ok){
+            throw new Error(`HTTP Error! status: ${response.status}`);
         }
+
         const tasks = await response.json();
-        displayTasks(tasks); 
-    } catch (error) {
-        console.error("Erro ao buscar tarefas:", error);
+        displayTasks(tasks);
+    }catch (error){
+        console.error('Error fetching tasks:', error);
     }
 }
 
 // Função para exibir as tarefas na página
-function displayTasks(tasks) {
+export function displayTasks(tasks){
     const tasksContainer = document.querySelector('.tasks');
-    
-    // Limpa o conteúdo atual
+
+    // Limpar o conteúdo atual
     const cardTask = document.querySelectorAll('.card-task');
     cardTask.forEach(task => task.remove());
 
@@ -29,7 +43,7 @@ function displayTasks(tasks) {
         const card = document.createElement('div');
         card.classList.add('card', 'card-task');
 
-        if (task.concluida) {
+        if(task.concluida){
             card.classList.add('completed');
         }
 
@@ -42,18 +56,19 @@ function displayTasks(tasks) {
                 <button class="card-button" data-task-id="${task.id}">
                     ${task.concluida ? 'Desfazer' : 'Completar'}
                 </button>
-            </div>
+            </div>               
         `;
 
         tasksContainer.appendChild(card);
+
     });
 }
 
-function setupAddTaskButton() {
+export function setupAddTaskButton() {
     const addTaskButton = document.getElementById('addTaskButton');
     const createTaskSection = document.getElementById('create-task');
 
-    if (addTaskButton && createTaskSection) {
+    if(addTaskButton && createTaskSection){
         $(addTaskButton).on('click', () => {
             $(createTaskSection).toggleClass('hidden visible');
             $(createTaskSection).css('display', 'flex');
@@ -61,9 +76,9 @@ function setupAddTaskButton() {
     }
 }
 
-// Função para enviar uma nova tarefa para a API
-async function postTask(taskData) {
-    const apiUrl = 'http://localhost:8081/api/tarefas'; 
+// Funcção para enviar uma nova tarefa para a API
+export async function postTask(taskData){
+    const apiUrl = 'http://localhost:8081/api/tarefas';
 
     try {
         const response = await fetch(apiUrl, {
@@ -74,25 +89,22 @@ async function postTask(taskData) {
             body: JSON.stringify(taskData),
         });
 
-        if (!response.ok) {
-            throw new Error(`Erro ao adicionar tarefa: ${response.status}`);
+        if(!response.ok){
+            throw new Error(`HTTP Error! status: ${response.status}`);
         }
 
         const newTask = await response.json();
-        console.log('Tarefa adicionada com sucesso:', newTask);
-        
-        fetchTasks();
-
-    } catch (error) {
-        console.error('Houve um problema ao adicionar a tarefa:', error);
+        console.log('Tarefa adicionada com sucesso: ', newTask)
+    }catch (error){
+        console.error('Error posting task:', error);
     }
 }
 
-// Configura o formulário de criação de tarefa
-function setupTaskForm() {
+// Configura o formulário de criação da tarefa
+export function setupTaskForm(){
     const taskForm = document.getElementById('task-form');
 
-    if (taskForm) {
+    if(taskForm){
         taskForm.addEventListener('submit', (event) => {
             event.preventDefault();
 
@@ -100,24 +112,23 @@ function setupTaskForm() {
             const titulo = document.getElementById('taskTitle').value;
             const descricao = document.getElementById('taskDescription').value;
 
-            // Verifica se os campos estão preenchidos
-            if (titulo && descricao) {
+            if(titulo && descricao){
                 const newTaskData = {
                     titulo: titulo,
                     descricao: descricao,
-                    concluida: false 
+                    concluida: false
                 }
-                
+
                 postTask(newTaskData);
                 taskForm.reset();
             }
+            
         });
     }
 }
 
-// Chame as funções de inicialização quando a página carregar
-document.addEventListener('DOMContentLoaded', () => {
+export function initializeDashboard() {
     fetchTasks();
     setupAddTaskButton();
     setupTaskForm();
-});
+}
