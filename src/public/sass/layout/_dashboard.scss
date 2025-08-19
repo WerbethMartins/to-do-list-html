@@ -1,6 +1,6 @@
 .main-title {
     font-size: 1.0em;
-    text-align: center;
+    text-align: start;
 }
 
 .hero {
@@ -10,7 +10,6 @@
     height: 90vh;
 
     & .dashboard {
-        display: flex;
         flex-direction: row;
         justify-content: space-around;
         align-items: flex-start;

@@ -13,3 +13,57 @@ function debounce(func, wait, immediate) {
     };
 }
 
+// Função para configurar o menu de itens
+export function setupItemsMenu(){
+    const itemsMenu = $('.menu-items');
+
+    // Adiciona evento de clique a cada item clicado
+    itemsMenu.each(function(index){
+        $(this).on('click', function() {
+             // Debug 
+            console.log('Item clicked:', index);
+
+            // Atualiza o título principal com base no item do menu clicado
+            addTitlePerItem($(this).data('menu-items'));
+            itemMenuControll($(this).data('menu-items'));
+        });
+    });
+}
+
+// Função para atualizar o título principal
+function addTitlePerItem(menuKey) {
+    const titles = {
+        dashboard: 'Dashboard | Crie uma nova tarefa, veja suas tarefas concluidas e mais.',
+        mytasks: 'Aqui estão suas tarefas | My Tasks',
+        settings: 'Aqui estão suas tarefas | Settings',
+        help: 'Aqui estão suas tarefas | Help'
+    };
+
+    // Atualiza o título principal
+    $('.main-title').text(titles[menuKey] || 'Título não reconhecido');
+}
+
+function itemMenuControll(menuKey){
+    switch(menuKey){
+        case 'dashboard':
+            $('#dashboard').addClass('visible');
+            break;
+        case 'mytasks':
+            $('#mytasks').addClass('visible');
+            break;
+        case 'settings':
+            $('#settings').addClass('visible');
+            break;
+        case 'help':
+            $('#help').addClass('visible');
+            break;
+        default:
+            console.log('Menu item não reconhecido: ' + menuKey);
+            break;
+    }
+}
+
+export function initializeMenu(){
+    setupItemsMenu();
+}
+

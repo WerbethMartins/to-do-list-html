@@ -12,15 +12,25 @@
     <header id="header" class="header">
       <h1>To Do List</h1>
       <nav id="navbar" class="navbar">
-        <a href="#" class="items-menu "><i class="bi bi-columns"></i> Dashboard</a>
-        <a href="#" class="items-menu"><i class="bi bi-card-list"></i> My tasks</a>
-        <a href="#" class="items-menu"><i class="bi bi-gear"></i> Settings</a>
-        <a href="#" class="items-menu"><i class="bi bi-info-square"></i> Help</a>
+        <a href="#" class="menu-items" data-menu-items="dashboard"><i class="bi bi-columns"></i> Dashboard</a>
+        <a href="#" class="menu-items"><i class="bi bi-card-list"></i> My tasks</a>
+        <a href="#" class="menu-items"><i class="bi bi-gear"></i> Settings</a>
+        <a href="#" class="menu-items"><i class="bi bi-info-square"></i> Help</a>
       </nav>
     </header>
     <main id="main" class="container hero">
-      <h2>Bem vindo de volta! Aqui estão suas tarefas</h2>
-      <section id="dashboard" class="dashboard">
+      <h2 class="main-title"><!-- Adicionada com javascript --></h2>
+
+      <section id="home" class="home-section">
+        <article id="panel" class="utility-panel">
+          <span id="climed" class="time-calendar"></span>
+          <div class="calendar">
+            <span id="day" class="day-calendar"></span>
+            <span id="month-year" class="month-year-calendar"></span>
+          </div>
+        </article>
+      </section>
+      <section id="dashboard" class="dashboard hidden">
         <article id="tasks" class="tasks">
           <div class="task-header">
             <h2 class="task-title bi bi-clipboard"> Tasks</h2>

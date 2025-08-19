@@ -127,7 +127,7 @@ export function setupTaskForm(){
     }
 }
 
-export function initializeDashboard() {
+export function initializeApi() {
     fetchTasks();
     setupAddTaskButton();
     setupTaskForm();

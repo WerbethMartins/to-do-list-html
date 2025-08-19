@@ -22,12 +22,12 @@
         padding: 10px;
         margin: 10px 0;
 
-        & .items-menu {
+        & .menu-items {
             margin: 3px;
             transition: all 0.3s ease;
         }
 
-        & .items-menu:hover {
+        & .menu-items:hover {
             transform: scale(1.05);
             color: #61b4f8;
         }
