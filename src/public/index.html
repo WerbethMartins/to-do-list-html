@@ -22,14 +22,45 @@
       <h2 class="main-title"><!-- Adicionada com javascript --></h2>
 
       <section id="home" class="home-section">
-        <article id="panel" class="utility-panel">
-          <span id="climed" class="time-calendar"></span>
-          <div class="calendar">
-            <span id="day" class="day-calendar"></span>
-            <span id="month-year" class="month-year-calendar"></span>
+        <!-- Painel de utilidades Tempo, hora e data -->
+        <article id="panel-1" class="utility-panel panel-1">
+          <div class="climat-calendar-info">
+            <div class="panel-climat">
+              <img src="img/cloudy-day.png" class="image" alt="Imagem de verão">
+              <div class="temperature-location">
+                <p class="temperature">18°C</p>
+                <p class="location">Blumenau, SC</p>
+              </div>
+            </div>
+            <div class="calendar-hour">
+              <span class="hour-calendar">11:55</span>
+              <div class="calendar-date-year">
+                <span id="day" class="day-calendar"></span>
+                <span id="month-year" class="month-year-calendar"></span>
+              </div>
+            </div>
+          </div>
+          <div id="weather-info" class="weather-info">
+            <!-- Adicionada com javascript -->
           </div>
         </article>
+
+        <article id="panel-2" class="utility-panel panel-2">
+          <div class="tasks-created-info">
+            <h2>Tarefas criadas:</h2>
+            <p class="tasks-created-count"></p>
+          </div>
+          <div class="divider"></div>
+          <div class="task-calendar">
+            <h4>Meses com mais tarefas concluidas:</h4>
+            <div class="months-with-most-tasks" id="months-list">
+              <!-- Adicionada com javascript -->
+            </div>
+          </div>
+        </article>
+
       </section>
+
       <section id="dashboard" class="dashboard hidden">
         <article id="tasks" class="tasks">
           <div class="task-header">
