@@ -23,40 +23,83 @@
 
       <section id="home" class="home-section">
         <!-- Painel de utilidades Tempo, hora e data -->
-        <article id="panel-1" class="utility-panel panel-1">
-          <div class="climat-calendar-info">
-            <div class="panel-climat">
-              <img src="img/cloudy-day.png" class="image" alt="Imagem de verão">
-              <div class="temperature-location">
-                <p class="temperature">18°C</p>
-                <p class="location">Blumenau, SC</p>
+        <article class="top-line">
+          <section id="panel-1" class="utility-panel panel-1">
+            <div class="climat-calendar-info">
+              <div class="panel-climat">
+                <img src="img/weather-icon/cloudy-day.png" class="image" alt="Imagem de verão">
+                <div class="temperature-location">
+                  <p class="temperature">18°C</p>
+                  <p class="location">Blumenau, SC</p>
+                </div>
+              </div>
+              <div class="calendar-hour">
+                <span class="hour-calendar">11:55</span>
+                  <div class="calendar-date-year">
+                    <span id="day" class="day-calendar"></span>
+                    <span id="month-year" class="month-year-calendar"></span>
+                  </div>
               </div>
             </div>
-            <div class="calendar-hour">
-              <span class="hour-calendar">11:55</span>
-              <div class="calendar-date-year">
-                <span id="day" class="day-calendar"></span>
-                <span id="month-year" class="month-year-calendar"></span>
-              </div>
-            </div>
-          </div>
           <div id="weather-info" class="weather-info">
             <!-- Adicionada com javascript -->
           </div>
-        </article>
+        </section>
 
-        <article id="panel-2" class="utility-panel panel-2">
+        <section id="panel-2" class="utility-panel panel-2">
           <div class="tasks-created-info">
             <h2>Tarefas criadas:</h2>
             <p class="tasks-created-count"></p>
           </div>
           <div class="divider"></div>
-          <div class="task-calendar">
-            <h4>Meses com mais tarefas concluidas:</h4>
-            <div class="months-with-most-tasks" id="months-list">
-              <!-- Adicionada com javascript -->
+            <div class="task-calendar">
+              <h4>Meses com mais tarefas concluidas:</h4>
+              <div class="months-with-most-tasks" id="months-list">
+                <!-- Adicionada com javascript -->
+              </div>
             </div>
-          </div>
+          </section>
+        </article>
+
+        <article class="down-line">
+          <section id="panel-3" class="utility-vertical-panel panel-3">
+            <h2>Tarefas favoritas:</h2>
+            <div class="favorite-tasks">
+              <ul class="favorite-tasks-list">
+                <li class="favorite-task-item favorite-task-card">Tarefa 1</li>
+                <li class="favorite-task-item favorite-task-card">Tarefa 2</li>
+                <li class="favorite-task-item favorite-task-card">Tarefa 3</li>
+                <li class="favorite-task-item favorite-task-card">Tarefa 4</li>
+                <li class="favorite-task-item favorite-task-card">Tarefa 5</li>
+              </ul>
+            </div>
+          </section>
+          <section id="panel-4" class="utility-vertical-panel panel-4">
+            <h2 class="archievements-title">Conquistas:</h2>
+            <div class="archievements">
+              <ul class="achievements-list">
+                <li class="achievement-item">
+                  <img src="./img/rewards/goal.png" alt="">
+                  <div class="achievement-info">
+                    <h3>Colecionador de tarefas!</h3>
+                    <p>Você concluiu 5 tarefas!</p>
+                  </div>
+                </li>
+                <li class="achievement-item">
+                  <img src="./img/rewards/medal.png" alt="">
+                  <p>Conquista 2</p>
+                </li>
+                <li class="achievement-item">
+                  <img src="./img/rewards/success.png" alt="">
+                  <p>Conquista 3</p>
+                </li>
+                <li class="achievement-item">
+                  <img src="./img/rewards/trophy.png" alt="">
+                  <p>Conquista 4</p>
+                </li>
+              </ul>
+            </div>
+          </section>
         </article>
 
       </section>

@@ -35,8 +35,8 @@ export function setupWeatherInfo(){
 
 function createdWeatherItems(data){
     const items = [
-        { name: "Umidade", value: data.humidity, img: "img/humidity.png" },
-        { name: "Vento", value: data.wind, img: "img/windy.png" }
+        { name: "Umidade", value: data.humidity, img: "img/weather-icon/humidity.png" },
+        { name: "Vento", value: data.wind, img: "img/weather-icon/windy.png" }
     ];
 
     const weatherInfo = document.getElementById('weather-info');

@@ -62,68 +62,76 @@ a {
 
 .home-section {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
   border: 1px solid #000000;
+  border-radius: 10px;
   width: 100%;
 }
-.home-section .climat-calendar-info {
+.home-section .top-line {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+.home-section .top-line .climat-calendar-info {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.home-section .climat-calendar-info .panel-climat {
+.home-section .top-line .climat-calendar-info .panel-climat {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   padding: 5px;
   color: #ed7c87;
 }
-.home-section .climat-calendar-info .panel-climat .image {
+.home-section .top-line .climat-calendar-info .panel-climat .image {
   background-color: transparent;
   max-width: 45%;
   height: auto;
 }
-.home-section .climat-calendar-info .panel-climat .temperature-location {
+.home-section .top-line .climat-calendar-info .panel-climat .temperature-location {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   margin-left: 10px;
 }
-.home-section .climat-calendar-info .panel-climat .temperature-location .temperature {
+.home-section .top-line .climat-calendar-info .panel-climat .temperature-location .temperature {
   font-size: 2.5em;
   font-weight: bold;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
-.home-section .climat-calendar-info .panel-climat .temperature-location .location {
+.home-section .top-line .climat-calendar-info .panel-climat .temperature-location .location {
   font-size: 0.8em;
   color: #464545;
 }
-.home-section .calendar-hour {
+.home-section .top-line .calendar-hour {
   display: flex;
   flex-direction: column;
 }
-.home-section .calendar-hour .hour-calendar {
+.home-section .top-line .calendar-hour .hour-calendar {
   color: #ed7c87;
   font-size: 2.3em;
   font-weight: bold;
 }
-.home-section .calendar-hour .calendar-date-year {
+.home-section .top-line .calendar-hour .calendar-date-year {
   display: flex;
   flex-direction: row;
 }
-.home-section .calendar-hour .calendar-date-year .day-calendar {
+.home-section .top-line .calendar-hour .calendar-date-year .day-calendar {
   color: #464545;
   font-size: 0.8em;
   font-weight: bold;
   margin: 0 5px;
 }
-.home-section .calendar-hour .calendar-date-year .month-year-calendar {
+.home-section .top-line .calendar-hour .calendar-date-year .month-year-calendar {
   font-size: 0.8em;
   color: #464545;
 }
-.home-section .weather-info {
+.home-section .top-line .weather-info {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -131,12 +139,12 @@ a {
   color: #464545;
   margin-top: 10px;
 }
-.home-section .weather-info .weather-item {
+.home-section .top-line .weather-info .weather-item {
   display: flex;
   align-items: center;
   margin-left: 10px;
 }
-.home-section .weather-info .weather-item .weather-item-img {
+.home-section .top-line .weather-info .weather-item .weather-item-img {
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 3px;
@@ -145,18 +153,18 @@ a {
   height: auto;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
-.home-section .weather-info .weather-item .weather-item-info {
+.home-section .top-line .weather-info .weather-item .weather-item-info {
   display: flex;
   flex-direction: column;
 }
-.home-section .weather-info .weather-item .weather-item-info .item-name {
+.home-section .top-line .weather-info .weather-item .weather-item-info .item-name {
   font-weight: bold;
   color: #ed7c87;
 }
-.home-section .weather-info .weather-item .weather-item-info .item-value {
+.home-section .top-line .weather-info .weather-item .weather-item-info .item-value {
   color: #464545;
 }
-.home-section .tasks-created-info {
+.home-section .top-line .tasks-created-info {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -165,32 +173,32 @@ a {
   margin: 0 15px;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
-.home-section .tasks-created-info .tasks-created-count {
+.home-section .top-line .tasks-created-info .tasks-created-count {
   font-size: 2em;
   font-weight: bold;
   color: #000000;
   margin-left: 10px;
 }
-.home-section .divider {
+.home-section .top-line .divider {
   width: 100%;
   height: 1px;
   background-color: #cdc5c5;
   margin: 2px 0;
 }
-.home-section .task-calendar {
+.home-section .top-line .task-calendar {
   display: flex;
   flex-direction: column;
   margin: 0 15px;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
-.home-section .task-calendar .months-with-most-tasks {
+.home-section .top-line .task-calendar .months-with-most-tasks {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   color: #ed7c87;
   margin: 10px 0;
 }
-.home-section .task-calendar .months-with-most-tasks .custom-progress-bar-container {
+.home-section .top-line .task-calendar .months-with-most-tasks .custom-progress-bar-container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -198,9 +206,96 @@ a {
   margin: 5px 0;
   height: 23px;
 }
-.home-section .task-calendar .months-with-most-tasks .custom-progress-bar-container .custom-progress-bar-fill {
+.home-section .top-line .task-calendar .months-with-most-tasks .custom-progress-bar-container .custom-progress-bar-fill {
   height: 100%;
   background-color: #ed7c87;
+}
+.home-section .down-line {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid #000000;
+  width: 100%;
+}
+.home-section .down-line .panel-3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  color: #ffffff;
+  gap: 10px;
+  width: 50%;
+}
+.home-section .down-line .panel-3 h2 {
+  color: #ed7c87;
+}
+.home-section .down-line .panel-3 .favorite-tasks {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 10px 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+.home-section .down-line .panel-3 .favorite-tasks .favorite-tasks-list {
+  width: 90%;
+}
+.home-section .down-line .panel-3 .favorite-tasks .favorite-tasks-list .favorite-task-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 8px;
+  margin: 5px 0;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s ease;
+}
+.home-section .down-line .panel-3 .favorite-tasks .favorite-tasks-list .favorite-task-item:hover {
+  transform: scale(1.02);
+}
+.home-section .down-line .panel-4 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  color: #ed7c87;
+  background-image: none;
+  gap: 10px;
+  padding: 10px;
+  box-shadow: none;
+}
+.home-section .down-line .panel-4 .archievements {
+  margin: 10px 0;
+}
+.home-section .down-line .panel-4 .achievements-list {
+  list-style: none;
+  padding: 0;
+}
+.home-section .down-line .panel-4 .achievements-list .achievement-item {
+  display: flex;
+  align-items: center;
+  margin: 5px 10px;
+}
+.home-section .down-line .panel-4 .achievements-list .achievement-item img {
+  width: 40px;
+  height: 40px;
+  margin-right: 8px;
+}
+.home-section .down-line .panel-4 .achievements-list .achievement-item .achievement-info {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 3px;
+}
+.home-section .down-line .panel-4 .achievements-list .achievement-item .achievement-info h3 {
+  color: #000000;
+  margin: 0;
+}
+.home-section .down-line .panel-4 .achievements-list .achievement-item .achievement-info p {
+  color: #ffffff;
 }
 
 .main-title {
@@ -385,6 +480,10 @@ a {
   transform: scale(1.02);
 }
 
+.favorite-task-card {
+  background-color: #ed7c87;
+}
+
 .utility-panel, .utility-panel .panel-2, .utility-panel .panel-1 {
   display: flex;
   flex-direction: column;
@@ -393,7 +492,9 @@ a {
   border-radius: 10px;
   background-image: linear-gradient(to top, rgba(242, 160, 178, 0) 0%, rgba(245, 201, 201, 0.8) 50%, rgba(250, 208, 196, 0) 100%), linear-gradient(to bottom, rgba(250, 196, 219, 0) 0%, rgba(245, 245, 245, 0.4) 25%, rgba(250, 196, 219, 0) 100%);
   padding: 15px;
+  margin: 10px 10px;
   width: 35%;
+  min-height: 165px;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
 }
@@ -402,7 +503,25 @@ a {
 }
 .utility-panel .panel-2 {
   align-items: flex-start;
-  margin: 0 20px;
+  margin: 0 25px;
+}
+
+.utility-vertical-panel, .utility-vertical-panel .panel-3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid #cdc5c5;
+  border-radius: 10px;
+  background-image: linear-gradient(120deg, #fdfbfb 0%, #cde4ef 100%);
+  padding: 15px;
+  margin: 10px 10px;
+  width: 35%;
+  min-height: 165px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+.utility-vertical-panel .panel-3 {
+  margin: 0 25px;
 }
 
 .btn {
