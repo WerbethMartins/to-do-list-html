@@ -13,10 +13,8 @@ export function setupCalendar(){
     monthYearElement.text(`${month} ${year}`);
 }
 
-export function setupWeatherInfo(){
+export function setupWeatherInfo(data){
     const weatherInfo = $('#weather-info');
-    const temperatureElement = $('.temperature');
-    const locationElement = $('.location');
 
     // Simulando dados de clima
     const weatherData = {
@@ -25,6 +23,11 @@ export function setupWeatherInfo(){
         humidity: "60%",
         wind: "10km/h"
     };
+
+    const temperatureElement = $('.temperature');
+    const locationElement = $('.location');
+
+    weatherInfo.empty(); // Limpa qualquer informação anterior 
 
     temperatureElement.text(weatherData.temperature);
     locationElement.text(weatherData.location);

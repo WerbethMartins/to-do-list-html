@@ -1,3 +1,5 @@
+@use '../global/variables' as *;
+
 .header {
     display: flex;
     flex-direction: column;
@@ -16,7 +18,7 @@
         align-items: center;
         border: 1px solid #ccc;
         border-radius: 8px;
-        background-color: #ed7c87;
+        background-color: $primary-light;
         padding: 10px;
         margin: 10px 0;
         width: 50%;
@@ -24,24 +26,85 @@
         box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
         transition: all 0.3s ease;
 
-        &:hover {
-            transform: scale(1.02);
-        }
-
         .menu-items {
-            margin: 3px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #495057;
+            font-size: 1.8rem;
+            border-radius: 50%;
+            background: #f8f9fa;
+            margin: 5px 0;
+            width: 45px;
+            height: 45px;
+            text-decoration: none;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .menu-items:hover {
-            transform: scale(1.05);
-            color: #61b4f8;
+            background: #6a11cb;
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(106, 17, 203, 0.4);
         }
 
         .bi {
             font-size: 1.9rem;
-            margin-right: 8px;
         }
 
+        .tooltip {
+           position: absolute;
+           visibility: hidden;
+           opacity: 0;
+           white-space: nowrap;
+           pointer-events: none;
+           color: white;
+           font-size: 0.9rem;
+           border-radius: 6px;
+           background-color: #333;
+           padding: 5px 12px;
+           top: -40px;
+           transition: all 0.3s ease;
+           box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .tooltip::after {
+            content: '';
+            position: absolute;
+            border-width: 5px 5px 0 5px;
+            border-style: solid;
+            border-color: #333 transparent transparent transparent;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .menu-items:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+            top: -50px;
+        }
+    }
+}
+
+@media (max-width: 600px){
+    .header {
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        width: 100%;
+        height: auto;
+        padding: 5px 0;
+
+        & .navbar {
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            width: 90%;
+            height: auto;
+            padding: 10px 0;
+        }
     }
 }

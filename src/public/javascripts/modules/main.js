@@ -1,6 +1,7 @@
-import {initializeApi} from './apiControll.js';
-import {initializeMenu} from './navbar.js';
-import { initializeSetupHomePage } from './home-panels.js';
+import {initializeApi} from './apiTarefa.js';
+import {initializeMenu} from './pagination.js';
+import { initializeSetupHomePage } from './Home/home-panels.js';
+import { initializeApiWeather } from './Home/apiWeather.js';
 
 $(document).ready(() => {
     initializeApi();

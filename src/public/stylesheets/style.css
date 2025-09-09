@@ -1,4 +1,6 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
+/* Rosa principal */
 .header {
   display: flex;
   flex-direction: column;
@@ -17,7 +19,7 @@
   align-items: center;
   border: 1px solid #ccc;
   border-radius: 8px;
-  background-color: #ed7c87;
+  background-color: #f8bbd0;
   padding: 10px;
   margin: 10px 0;
   width: 50%;
@@ -25,22 +27,80 @@
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
   transition: all 0.3s ease;
 }
-.header .navbar:hover {
-  transform: scale(1.02);
-}
 .header .navbar .menu-items {
-  margin: 3px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #495057;
+  font-size: 1.8rem;
+  border-radius: 50%;
+  background: #f8f9fa;
+  margin: 5px 0;
+  width: 45px;
+  height: 45px;
+  text-decoration: none;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .header .navbar .menu-items:hover {
-  transform: scale(1.05);
-  color: #61b4f8;
+  background: #6a11cb;
+  color: white;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(106, 17, 203, 0.4);
 }
 .header .navbar .bi {
   font-size: 1.9rem;
-  margin-right: 8px;
+}
+.header .navbar .tooltip {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  white-space: nowrap;
+  pointer-events: none;
+  color: white;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  background-color: #333;
+  padding: 5px 12px;
+  top: -40px;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+.header .navbar .tooltip::after {
+  content: "";
+  position: absolute;
+  border-width: 5px 5px 0 5px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.header .navbar .menu-items:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+  top: -50px;
 }
 
+@media (max-width: 600px) {
+  .header {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    height: auto;
+    padding: 5px 0;
+  }
+  .header .navbar {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+    height: auto;
+    padding: 10px 0;
+  }
+}
 * {
   font-family: 100%/1.5 "Roboto Condensed", sans-serif;
   padding: 0;
@@ -83,15 +143,15 @@ a {
   display: flex;
 }
 
-/* Rosa principal */
 .home-section {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  border: 1px solid #000000;
+  border: 2px solid #dddddd;
   border-radius: 10px;
   width: 100%;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
 .home-section .top-line {
   display: flex;
@@ -193,14 +253,14 @@ a {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  color: #ed7c87;
+  color: #e91e63;
   margin: 0 15px;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 .home-section .top-line .tasks-created-info .tasks-created-count {
   font-size: 2em;
   font-weight: bold;
-  color: #000000;
+  color: #f8bbd0;
   margin-left: 10px;
 }
 .home-section .top-line .task-calendar {
@@ -233,7 +293,6 @@ a {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  border: 1px solid #000000;
   width: 100%;
 }
 .home-section .down-line .panel-3 {
@@ -241,12 +300,11 @@ a {
   flex-direction: column;
   justify-content: space-around;
   align-items: flex-start;
-  color: #ffffff;
   gap: 10px;
   width: 50%;
 }
 .home-section .down-line .panel-3 h2 {
-  color: #ed7c87;
+  color: #e91e63;
 }
 .home-section .down-line .panel-3 .favorite-tasks {
   cursor: pointer;
@@ -265,9 +323,8 @@ a {
   display: flex;
   flex-direction: row;
   align-items: center;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 8px;
+  color: #fff;
+  border-left: 4px solid #e91e63;
   margin: 5px 0;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   transition: transform 0.2s ease;
@@ -275,33 +332,44 @@ a {
 .home-section .down-line .panel-3 .favorite-tasks .favorite-tasks-list .favorite-task-item:hover {
   transform: scale(1.02);
 }
+.home-section .down-line .panel-3 .favorite-tasks .favorite-tasks-list .favorite-task-item::before {
+  content: "★";
+  color: #f8df25;
+  margin-right: 8px;
+}
 .home-section .down-line .panel-4 {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: flex-start;
-  color: #ed7c87;
   background-image: none;
   gap: 10px;
   padding: 10px;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
+.home-section .down-line .panel-4 h2 {
+  color: #e91e63;
+}
 .home-section .down-line .panel-4 .archievements {
   margin: 10px 0;
 }
 .home-section .down-line .panel-4 .achievements-list {
-  list-style: none;
   padding: 0;
+  list-style: none;
 }
 .home-section .down-line .panel-4 .achievements-list .achievement-item {
   display: flex;
   align-items: center;
+  border-radius: 8px;
+  border-left: 4px solid #e91e63;
+  background-color: #898485;
   margin: 5px 10px;
 }
 .home-section .down-line .panel-4 .achievements-list .achievement-item img {
+  margin-left: 5px;
+  margin-right: 8px;
   width: 40px;
   height: 40px;
-  margin-right: 8px;
 }
 .home-section .down-line .panel-4 .achievements-list .achievement-item .achievement-info {
   border: 1px solid #ccc;
@@ -309,11 +377,12 @@ a {
   padding: 3px;
 }
 .home-section .down-line .panel-4 .achievements-list .achievement-item .achievement-info h3 {
-  color: #000000;
+  color: #333333;
   margin: 0;
 }
 .home-section .down-line .panel-4 .achievements-list .achievement-item .achievement-info p {
-  color: #ed7c87;
+  color: #666;
+  font-size: 0.9em;
 }
 
 .main-title {
@@ -448,7 +517,7 @@ a {
   margin: 0 10px;
 }
 
-.card {
+.card, .favorite-task-card {
   cursor: pointer;
   border: 1px solid #dddddd;
   border-radius: 10px;
@@ -456,50 +525,50 @@ a {
   margin: 5px;
   transition: all 0.3s ease;
 }
-.card .card-title {
+.card .card-title, .favorite-task-card .card-title {
   font-size: 1.2em;
   margin-bottom: 5px;
 }
-.card .card-description {
+.card .card-description, .favorite-task-card .card-description {
   font-size: 0.9em;
   color: #555;
 }
-.card .card-footer {
+.card .card-footer, .favorite-task-card .card-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 10px;
 }
-.card .card-footer .card-date {
+.card .card-footer .card-date, .favorite-task-card .card-footer .card-date {
   font-size: 0.8em;
   color: #888;
 }
-.card .card-footer .card-status {
+.card .card-footer .card-status, .favorite-task-card .card-footer .card-status {
   font-size: 0.8em;
   color: #58c8e4;
 }
-.card .card-footer .card-button {
-  background-color: #ed7c87;
+.card .card-footer .card-button, .favorite-task-card .card-footer .card-button {
+  cursor: pointer;
   color: #fff;
   border: none;
-  padding: 5px 10px;
   border-radius: 5px;
-  cursor: pointer;
+  background-color: #f8bbd0;
+  padding: 5px 10px;
   transition: all 0.3s ease;
 }
-.card .card-footer .card-button:hover {
+.card .card-footer .card-button:hover, .favorite-task-card .card-footer .card-button:hover {
   transform: translateY(-5px);
   background-color: #d65a63;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
 
-.card:hover {
+.card:hover, .favorite-task-card:hover {
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
   transform: scale(1.02);
 }
 
 .favorite-task-card {
-  background-color: #750909;
+  background-color: #f8bbd0;
 }
 
 .utility-panel, .utility-panel .panel-2, .utility-panel .panel-1 {
@@ -530,7 +599,6 @@ a {
   justify-content: center;
   border: 1px solid #cdc5c5;
   border-radius: 10px;
-  background-image: linear-gradient(120deg, #fdfbfb 0%, #cde4ef 100%);
   padding: 15px;
   margin: 10px 10px;
   width: 35%;
@@ -539,6 +607,7 @@ a {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
 }
 .utility-vertical-panel .panel-3 {
+  background-color: white;
   margin: 0 25px;
 }
 

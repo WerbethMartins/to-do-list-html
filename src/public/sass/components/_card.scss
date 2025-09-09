@@ -1,12 +1,8 @@
+@use '../global/variables' as *;
 @use '../global/mixins.scss' as *;
 
 .card {
-    cursor: pointer;
-    @include border;
-    border-radius: 10px;
-    padding: 2%;
-    margin: 5px;
-    transition: all 0.3s ease;
+    @include cardTarefa;
 
     & .card-title {
         font-size: 1.2em;
@@ -35,12 +31,12 @@
         }
 
         & .card-button {
-            background-color: #ed7c87;
+            cursor: pointer;
             color: #fff;
             border: none;
-            padding: 5px 10px;
             border-radius: 5px;
-            cursor: pointer;
+            background-color: $primary-light;
+            padding: 5px 10px;
             transition: all 0.3s ease;
 
             &:hover {
@@ -57,6 +53,8 @@
     transform: scale(1.02);
 }
 
+// Card específica para tarefas favoritas
 .favorite-task-card{
-   background-color: #750909;
+    @extend .card;
+    background-color: $primary-light;
 }
