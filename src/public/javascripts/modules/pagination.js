@@ -44,22 +44,16 @@ function addTitlePerItem(menuKey) {
 }
 
 function itemMenuControll(menuKey){
-    switch(menuKey){
-        case 'dashboard':
-            $('#dashboard').addClass('visible');
-            break;
-        case 'mytasks':
-            $('#mytasks').addClass('visible');
-            break;
-        case 'settings':
-            $('#settings').addClass('visible');
-            break;
-        case 'help':
-            $('#help').addClass('visible');
-            break;
-        default:
-            console.log('Menu item não reconhecido: ' + menuKey);
-            break;
+    const allPanels = $('#home, #dashboard, #mytasks, #settings, #help');
+    
+    allPanels.addClass('hidden').removeClass('visible');
+    
+    const selectedPanel = $('#' + menuKey);
+    selectedPanel.addClass('visible').removeClass('hidden');
+
+    // Fallback
+    if (!selectedPanel.length) {
+        console.log('Menu item não reconhecido: ' + menuKey);
     }
 }
 

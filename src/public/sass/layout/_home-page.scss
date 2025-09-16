@@ -283,3 +283,32 @@
 
 }
 
+@media (max-width: 600px) {
+    .home-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        border: 1px solid #e91e63;
+        width: 95%;
+
+        .top-line, .down-line {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .top-line {
+            .climat-calendar-info, .calendar-hour {
+                margin-bottom: 15px;
+            }
+        }
+
+        .down-line {
+            .panel-3, .panel-4 {
+                width: 90%;
+                margin-bottom: 15px;
+            }
+        }
+    }
+}
+

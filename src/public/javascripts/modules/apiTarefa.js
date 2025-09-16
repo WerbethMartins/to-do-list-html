@@ -1,3 +1,4 @@
+// Função debounce para limitar a frequência de execução de uma função
 export function debounce(func, wait, immediate) {
     let timeout;
     return function(...args) {

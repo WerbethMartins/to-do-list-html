@@ -32,7 +32,7 @@
     <main id="main" class="container hero">
       <h2 class="main-title"><!-- Adicionada com javascript --></h2>
 
-      <section id="home" class="home-section">
+      <section id="home" class="home-section visible">
         <!-- Painel de utilidades Tempo, hora e data -->
         <article class="top-line">
           <section id="panel-1" class="utility-panel panel-1">
@@ -41,7 +41,7 @@
                 <img src="img/weather-icon/cloudy-day.png" class="image" alt="Imagem de verão">
               </div>
               <div class="calendar-hour">
-                <span class="hour-calendar">11:55</span>
+                <span class="hour-calendar"></span>
                   <div class="calendar-date-year">
                     <span id="day" class="day-calendar"></span>
                     <span id="month-year" class="month-year-calendar"></span>
@@ -73,11 +73,7 @@
             <h2>Tarefas favoritas:</h2>
             <div class="favorite-tasks">
               <ul class="favorite-tasks-list">
-                <li class="favorite-task-item favorite-task-card">Tarefa 1</li>
-                <li class="favorite-task-item favorite-task-card">Tarefa 2</li>
-                <li class="favorite-task-item favorite-task-card">Tarefa 3</li>
-                <li class="favorite-task-item favorite-task-card">Tarefa 4</li>
-                <li class="favorite-task-item favorite-task-card">Tarefa 5</li>
+                  <!-- Adicionada com javascript -->
               </ul>
             </div>
           </section>
@@ -87,34 +83,7 @@
             <div class="divider"></div>
             <div class="archievements">
               <ul class="achievements-list">
-                <li class="achievement-item">
-                  <img src="./img/rewards/gold-medal-locked.png" alt="">
-                  <div class="achievement-info">
-                    <h3>E já foi a primeira!</h3>
-                    <p>Você concluiu sua primeira tarefa!</p>
-                  </div>
-                </li>
-                <li class="achievement-item">
-                  <img src="./img/rewards/medal-locked.png" alt="">
-                  <div class="achievement-info">
-                    <h3>Colecionador de tarefas!</h3>
-                    <p>Você concluiu 5 tarefas!</p>
-                  </div>
-                </li>
-                <li class="achievement-item">
-                  <img src="./img/rewards/goal-locked.png" alt="">
-                  <div class="achievement-info">
-                    <h3>Mestre da produtividade!</h3>
-                    <p>Você concluiu 10 tarefas!</p>
-                  </div>
-                </li>
-                <li class="achievement-item">
-                  <img src="./img/rewards/success-locked.png" alt="">
-                  <div class="achievement-info">
-                    <h3>Furacão de deveres!</h3>
-                    <p>Você concluiu 15 tarefas!</p>
-                  </div>
-                </li>
+                <!-- Adicionada com javascript -->
               </ul>
             </div>
           </section>
@@ -152,13 +121,22 @@
             <button type="button" id="cancelTaskButton" class="btn task-cancel-button">Cancelar</button>
           </form>
         </article>
-        <article class="task-information-section">
-          <h2 class="information-title bi bi-clipboard"> Task status</h2>
-          <div class="information-card">
-            <h3 class="information-card-title">Total Tasks</h3>
-            <p class="information-card-value"></p>
-          </div>
-        </article>
+        <div class="information-and-taskCompleted-section">
+          <article class="task-information-section">
+            <h2 class="information-title bi bi-clipboard"> Task status</h2>
+            <div class="information-card">
+              <h3 class="information-card-title">Total Tasks</h3>
+              <p class="information-card-value"></p>
+            </div>
+          </article>
+          <article class="task-completed-section">
+            <h2 class="completed-title bi bi-clipboard"> Completed Tasks</h2>
+            <div class="completed-card">
+              <h3 class="completed-card-title">Total Completed</h3>
+              <p class="completed-card-value"></p>
+            </div>
+          </article>
+        </div>
       </section>
     </main>
   </section>

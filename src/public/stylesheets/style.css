@@ -87,7 +87,7 @@
   .header {
     flex-direction: row;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     width: 100%;
     height: auto;
     padding: 5px 0;
@@ -96,7 +96,7 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    width: 90%;
+    width: 93%;
     height: auto;
     padding: 10px 0;
   }
@@ -136,13 +136,19 @@ a {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .visible {
-  display: flex;
+  display: flex !important;
 }
 
+@media (max-width: 600px) {
+  .contents-body {
+    flex-direction: column;
+    height: auto;
+  }
+}
 .home-section {
   display: flex;
   flex-direction: column;
@@ -385,6 +391,27 @@ a {
   font-size: 0.9em;
 }
 
+@media (max-width: 600px) {
+  .home-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #e91e63;
+    width: 95%;
+  }
+  .home-section .top-line, .home-section .down-line {
+    flex-direction: column;
+    align-items: center;
+  }
+  .home-section .top-line .climat-calendar-info, .home-section .top-line .calendar-hour {
+    margin-bottom: 15px;
+  }
+  .home-section .down-line .panel-3, .home-section .down-line .panel-4 {
+    width: 90%;
+    margin-bottom: 15px;
+  }
+}
 .main-title {
   font-size: 1em;
   text-align: start;
@@ -592,6 +619,17 @@ a {
   align-items: flex-start;
   margin: 0 25px;
 }
+@media (max-width: 600px) {
+  .utility-panel, .utility-panel .panel-2, .utility-panel .panel-1 {
+    width: 90%;
+    margin: 10px auto;
+    flex-direction: column;
+    align-items: center;
+  }
+  .utility-panel .panel-2 {
+    margin: 10px auto;
+  }
+}
 
 .utility-vertical-panel, .utility-vertical-panel .panel-3 {
   display: flex;
@@ -609,6 +647,12 @@ a {
 .utility-vertical-panel .panel-3 {
   background-color: white;
   margin: 0 25px;
+}
+@media (max-width: 600px) {
+  .utility-vertical-panel, .utility-vertical-panel .panel-3 {
+    width: 50%;
+    margin: 10px auto;
+  }
 }
 
 .btn {
