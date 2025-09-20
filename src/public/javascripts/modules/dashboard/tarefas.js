@@ -33,7 +33,7 @@ export async function fetchTasks() {
 
 // Função para exibir as tarefas na página
 export function displayTasks(tasks){
-    const tasksContainer = document.querySelector('.tasks');
+    const tasksContainer = document.querySelector('.dashboard-task-panel');
 
     // Limpar o conteúdo atual
     const cardTask = document.querySelectorAll('.card-task');

@@ -91,54 +91,51 @@
       </section>
 
       <section id="dashboard" class="dashboard hidden">
-        <article id="tasks" class="tasks">
+        <article id="tasks" class="dashboard-task-panel">
           <div class="task-header">
-            <h2 class="task-title bi bi-clipboard"> Tasks</h2>
-            <button id="addTaskButton" class="task-button"><i class="bi bi-plus-circle"></i> Add Task</button>
+            <h2 class="task-title bi bi-clipboard"> Tarefas</h2>
+            <button id="addTaskButton" class="task-button"><i class="bi bi-plus-circle"></i> Adicionar</button>
           </div>
-          <p class="task-date">10-02-2014</p>
         </article>
 
-        <article id="create-task" class="create-task-section">
-          <h2 class="create-task-title bi bi-clipboard"> Crie uma tarefa</h2>
-          <form action="" id="task-form" class="task-form">
-            <label for="taskTitle"> Titulo:</label>
-            <input type="text" name="taskTitle" id="taskTitle" class="task-input" 
-            placeholder="Digite o titulo da tarefa" required>
-
-            <label for="taskDescription"> Descrição:</label>
-            <input type="text" name="taskDescription" id="taskDescription" class="task-input" 
-            placeholder="Digite a descrição da tarefa" required>
-
-            <div class="task-status">
-              <label for="task-completed">Status:</label>
-              <p id="task-completed" class="task-status-paragraph">
-                <!-- Será adicionada com javascript -->
-              </p>
-            </div>
-
-            <button type="submit" id="confirmTaskButton" class="btn task-submit-button">Criar Tarefa</button>
-            <button type="button" id="cancelTaskButton" class="btn task-cancel-button">Cancelar</button>
-          </form>
+        <article id="create-task" class="create-task-panel">
+          <!-- Será adicionado com javascript -->
         </article>
         <div class="information-and-taskCompleted-section">
-          <article class="task-information-section">
-            <h2 class="information-title bi bi-clipboard"> Task status</h2>
-            <div class="information-card">
-              <h3 class="information-card-title">Total Tasks</h3>
-              <p class="information-card-value"></p>
-            </div>
+          <article class="task-information-panel">
+            <!-- Será adicionado com javascript -->
           </article>
-          <article class="task-completed-section">
-            <h2 class="completed-title bi bi-clipboard"> Completed Tasks</h2>
-            <div class="completed-card">
-              <h3 class="completed-card-title">Total Completed</h3>
-              <p class="completed-card-value"></p>
-            </div>
+          <article class="task-completed-panel">
+            <h2 class="completed-title bi bi-clipboard"> Tarefas completadas</h2>
+            <section class="completed-card">
+              <h3 class="completed-card-value">Total: 50</h3>
+              <div class="completed-tasks-list">
+                <!-- Adicionada com javascript -->
+                <!-- Simulando tarefas completas-->
+                <div class="completed-task-item card card-task">
+                  <p class="completed-task-title">Tarefa 1</p>
+                  <img src="./img/task-img/Python.jpg" alt="Imagem linguagem Python" class="completed-task-image">
+                  <div class="completed-task-details">
+                    <p class="completed-task-date">2024-01-10</p>
+                    <p class="completed-task-completed">Concluida</p>
+                  </div>
+                </div> 
+                <div class="completed-task-item card card-task">
+                  <p class="completed-task-title">Tarefa 2</p>
+                  <img src="./img/task-img/Python.jpg" alt="Imagem linguagem Python" class="completed-task-image">
+                  <div class="completed-task-details">
+                    <p class="completed-task-date">2024-01-10</p>
+                    <p class="completed-task-completed">Concluida</p>
+                  </div>
+                </div> 
+              </div>
+            </section>
           </article>
         </div>
       </section>
+
     </main>
+
   </section>
   
   <!-- Jquery -->

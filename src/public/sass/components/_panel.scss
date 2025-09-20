@@ -1,6 +1,7 @@
 @use '../global/variables.scss' as *;
 @use '../global/mixins.scss' as *;
 
+// Home page panels styles
 .utility-panel{
     @include utility-panel;
 
@@ -41,6 +42,23 @@
         margin: 10px auto;
         
     }
+}
+
+// Dashboard page panels styles
+.dashboard-panel-1 {
+    @include dashboard-panel-1;
+}
+
+.dashboard-panel-2 {
+    @include dashboard-panel-2;
+}
+
+.dashboard-panel-3 {
+    @include dashboard-panel-3
+}
+
+.dashboard-panel-4{
+    @include dashboard-panel-4;
 }
 
 

@@ -1,0 +1,180 @@
+@use '../../global/variables.scss' as *;
+@use '../../components/panel.scss' as *;
+
+.dashboard-task-panel {
+    @extend .dashboard-panel-1;
+
+    & .task-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+
+        & .task-title {
+            font-size: 1em;
+            color: #ed7c87;
+        }
+
+        & .bi-plus-circle {
+            color: #ed7c87;
+            font-size: 1.1em;
+        }
+
+        & .task-button {
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            font-size: 0.6em;
+            color: #9b9696;
+            padding: 5px 10px;
+            transition: all 0.3s ease;
+        }
+    }
+
+    & .task-date {
+        text-align: center;
+        border: 1px solid #888;
+        border-radius: 10px;
+        font-size: 0.8em;
+        color: #171717;
+        margin-bottom: 10px;
+        width: 15%;
+    }
+}
+
+.create-task-panel {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    @extend .dashboard-panel-2;
+
+    & .create-task-title {
+        font-size: 1.2em;
+        color: #ed7c87;
+        margin-bottom: 10px;
+    }
+
+    & input {
+        border: none;
+        padding: 3px;
+        margin: 2px 0;
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    & .task-status {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        
+        & p {
+            font-size: 0.8em;
+            color: #61b4f8;
+            margin: 0 5px;
+        }
+
+        & .completed{
+                font-size: 0.8em;
+            color: #87f861;
+        }
+    }
+}
+
+    .task-information-panel {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        @extend .dashboard-panel-3;
+
+        & .information-title {
+            font-size: 1.2em;
+            color: #ed7c87;
+            margin-bottom: 10px;
+        }
+    
+        .information-card {
+            display: flex;
+            flex-direction: row;
+            padding: 5px;
+
+            & .information-card-title {
+                font-size: 1em;
+                color: #333;
+                margin-bottom: 10px;
+            }
+
+            & .information-card-value {
+                font-size: 1em;
+                margin: 0 10px;
+            }
+        }
+    }
+
+.task-completed-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    @extend .dashboard-panel-4;
+
+    .completed-title{
+        font-size: 1.2em;
+        color: #ed7c87;
+        margin-bottom: 10px;
+    }
+
+    .completed-card{
+        display: flex;
+        flex-direction: column;
+        padding: 5px;
+        width: 100%;
+
+        & .completed-card-value {
+            font-size: 1em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .completed-tasks-list {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            width: 100%;
+
+            .completed-task-item {
+                width: 100%;
+
+                .completed-task-title {
+                    font-size: 1em;
+                    font-weight: bold;
+                    color: #333;
+                }
+
+                .completed-task-image {
+                    width: 100%;
+                    max-width: 70px;
+                    height: auto;
+                    border-radius: 5px;
+                    margin: 5px 0;
+                }
+
+                .completed-task-details {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 10px;
+
+                    .completed-task-date {
+                        font-size: 0.8em;
+                        color: #666;
+                    }
+
+                    .completed-task-completed {
+                        font-size: 0.8em;
+                        color: #87f861;
+                    }
+                }
+            }
+        }
+    }
+}
