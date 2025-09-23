@@ -12,8 +12,6 @@
 
     .panel-2 {
         @extend .utility-panel;
-        align-items: flex-start;
-        margin: 0 25px;
     }
 
     @media(max-width: $breakpoint-mobile){

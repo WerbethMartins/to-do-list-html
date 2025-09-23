@@ -34,7 +34,7 @@ export function setupItemsMenu(){
 function addTitlePerItem(menuKey) {
     const titles = {
         dashboard: 'Dashboard | Crie uma nova tarefa, veja suas tarefas concluidas e mais.',
-        mytasks: 'Aqui estão suas tarefas | My Tasks',
+        listaTarefas: 'Lista de Tarefas | Aqui estão suas tarefas',
         settings: 'Aqui estão suas tarefas | Settings',
         help: 'Aqui estão suas tarefas | Help'
     };
@@ -44,7 +44,7 @@ function addTitlePerItem(menuKey) {
 }
 
 function itemMenuControll(menuKey){
-    const allPanels = $('#home, #dashboard, #mytasks, #settings, #help');
+    const allPanels = $('#home, #dashboard, #listaTarefas, #settings, #help');
     
     allPanels.addClass('hidden').removeClass('visible');
     

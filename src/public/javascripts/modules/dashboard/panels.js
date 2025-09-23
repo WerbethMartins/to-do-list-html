@@ -14,6 +14,22 @@ export function debounce(func, wait, immediate) {
     };
 }
 
+// Função para configurar o botão de adicionar tarefa
+export function setupAddTaskButton() {
+    const tasksContainer = document.getElementById('tasks');
+    const addTaskButton = document.getElementById('addTaskButton');
+    const createTaskSection = document.getElementById('create-task');
+
+    if(addTaskButton && createTaskSection){
+        $(addTaskButton).on('click', () => {
+            $(createTaskSection).toggleClass('hidden visible');
+            $(tasksContainer).toggleClass('hidden');
+            $(createTaskSection).css('display', 'flex');
+            $(tasksContainer).css('display', 'none');
+        });
+    }
+}
+
 export function setupCreateTaskPanel() {
 
     const createTaskPanel = document.querySelector('.create-task-panel');
@@ -25,46 +41,139 @@ export function setupCreateTaskPanel() {
     createTaskPanel.innerHTML = `
         <h2 class="create-task-title bi bi-clipboard"> Crie uma tarefa</h2>
         <form action="#" id="task-form" class="task-form">
-            <label for="taskTitle"> Titulo:</label>
-            <input type="text" name="taskTitle" id="taskTitle" class="task-input" 
+            <div class="up-side">
+                <label for="taskTitle"> Titulo:</label>
+                <input type="text" name="taskTitle" id="taskTitle" class="task-input" 
                 placeholder="Digite o titulo da tarefa" required>
 
-            <label for="taskDescription"> Descrição:</label>
-                <input type="text" name="taskDescription" id="taskDescription" class="task-input" 
-                placeholder="Digite a descrição da tarefa" required>
-
-            <div class="task-status">
-                <label for="task-completed">Status:</label>
-                <p id="task-completed" class="task-status-paragraph">
-                </p>
+                <div class="task-status">
+                    <label for="task-completed">Status:</label>
+                    <p id="task-completed" class="task-status-paragraph">Automático</p>
+                </div>
             </div>
 
-            <button type="submit" id="confirmTaskButton" class="btn task-submit-button">Criar Tarefa</button>
-            <button type="button" id="cancelTaskButton" class="btn task-cancel-button">Cancelar</button>
+            <div class="down-side">
+                <label for="taskDescription"> Descrição:</label>
+                <input type="text" name="taskDescription" id="taskDescription" class="task-input textarea-input" 
+                placeholder="Digite a descrição da tarefa" required>
+
+                <div class="task-image">
+                    <label for="taskImage">Imagem:</label>
+                    <input type="file" id="taskImage" name="taskImage" accept="image/*" class="task-input
+                    file-input">
+                </div>
+
+                <div class="task-buttons">
+                    <button type="submit" id="confirmTaskButton" class="btn task-submit-button">Criar Tarefa</button>
+                    <button type="button" id="cancelTaskButton" class="btn task-cancel-button">Cancelar</button>
+                </div>
+            </div>
+            
         </form>
     `
 }
 
-export function setupTaskInformationPanel(){
+// Função para atualizar as estatísticas de tarefas
+
+export function updateTaskStatistics(tasks){
+    if(!tasks){
+        console.log("Nenhuma tarefa disponível para calcular estatísticas.");
+        return {
+            completed: 0,
+            pending: 0,
+            cancelled: 0
+        }
+    }
+    const stats = {
+        completed: tasks.filter(task => task.concluida).length,
+        pending: tasks.filter(task => !task.concluida).length,
+        cancelled: tasks.filter(task => task.cancelada).length || 0
+    }
+
+    return stats;
+}
+
+export function setupTaskInformationPanel(tasks){
+    const stats = updateTaskStatistics(tasks);
     const taskInformationPanel = document.querySelector('.task-information-panel');
     if(!taskInformationPanel) return;
 
     taskInformationPanel.innerHTML = '';
 
     taskInformationPanel.innerHTML = `
-     <h2 class="information-title bi bi-clipboard"> Status</h2>
-       <div class="information-card">
-            <h3 class="information-card-title">Estatisticas:</h3>
-            <p class="information-card-value">Concluidas</p>
-            <p class="information-card-value">Pendentes</p>
-            <p class="information-card-value">Canceladas</p>
+        <h2 class="information-title bi bi-clipboard">Status</h2>
+        <div class="information-card">
+            <h3 class="information-card-title">Estatísticas:</h3>
+            <div class="stat-item">
+                <span class="stat-icon completed">✅</span>
+                <span class="stat-label">Concluídas:</span>
+                <span class="stat-value" id="completed-count">${stats.completed}</span>
+            </div>
+            
+            <div class="stat-item">
+                <span class="stat-icon pending">⏳</span>
+                <span class="stat-label">Pendentes:</span>
+                <span class="stat-value" id="pending-count">${stats.pending}</span>
+            </div>
+            
+            <div class="stat-item">
+                <span class="stat-icon cancelled">❌</span>
+                <span class="stat-label">Canceladas:</span>
+                <span class="stat-value" id="cancelled-count">${stats.cancelled}</span>
+            </div>
         </div>
     `
 }
 
+export function setupTaskCompletedPanel(tasks){
+    const completedTasks = tasks ? tasks.filter(task => task.completed) : [];
+    
+    const taskCompletedCard = document.querySelector('.completed-card');
+    if(!taskCompletedCard) return;
+
+    taskCompletedCard.innerHTML = '';
+    
+    // Total de tarefas completadas
+    taskCompletedCard.innerHTML = `
+        <div class="completed-card">
+            <h3 class="completed-card-value">Total: ${completedTasks.length}</h3>
+            <div class="completed-tasks-list" id="completed-tasks-list">
+                <!-- Tarefas serão inseridas aqui -->
+            </div>
+        </div>
+    `
+
+    // Lista de tarefas completadas
+    completedTasks.forEach(task => {
+        const cardElement = document.createElement('div');
+        // Cards de tarefas completadas
+        cardElement.classList.add('completed-task-item', 'card', 'card-task');
+        cardElement.innerHTML = `
+            <div class="completed-title-section">
+                <p class="completed-task-title">${task.title}</p>
+            </div> 
+
+            <div class="completed-task-image-and-description-section">
+                <img ${task.image} alt="Imagem linguagem Python" class="completed-task-image">
+                <p class="completed-task-description">${task.description}</p>
+            </div>
+
+            <div class="completed-task-details">
+                <p class="completed-task-date">${task.date}</p>
+                <p class="completed-task-completed">Concluída</p>
+            </div>
+        `
+
+        taskCompletedCard.appendChild(cardElement);
+    });
+}
+
 export function initializeSetupDashboardPage(){
+    setupAddTaskButton();
     setupCreateTaskPanel();
+    updateTaskStatistics();
     setupTaskInformationPanel();
+    setupTaskCompletedPanel();
 }
 
 document.addEventListener('DOMContentLoaded', () => {

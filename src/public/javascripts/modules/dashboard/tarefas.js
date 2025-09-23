@@ -26,6 +26,8 @@ export async function fetchTasks() {
 
         const tasks = await response.json();
         displayTasks(tasks);
+        setupTaskInformationPanel(tasks);
+        setupTaskCompletedPanel(tasks);
     }catch (error){
         console.error('Error fetching tasks:', error);
     }
@@ -49,13 +51,13 @@ export function displayTasks(tasks){
         }
 
         card.innerHTML = `
-            <h3 class="card-title">${task.titulo}</h3>
-            <p class="card-description">${task.descricao}</p>
+            <h3 class="card-title">${task.title}</h3>
+            <p class="card-description">${task.description}</p>
             <div class="card-footer">
                 <p class="card-date">Criado em: sem data</p>
-                <p class="card-status">${task.concluida ? 'Concluída' : 'Em progresso'}</p>
+                <p class="card-status">${task.completed ? 'Concluída' : 'Em progresso'}</p>
                 <button class="card-button" data-task-id="${task.id}">
-                    ${task.concluida ? 'Desfazer' : 'Completar'}
+                    ${task.completed ? 'Desfazer' : 'Completar'}
                 </button>
             </div>               
         `;
@@ -63,18 +65,6 @@ export function displayTasks(tasks){
         tasksContainer.appendChild(card);
 
     });
-}
-
-export function setupAddTaskButton() {
-    const addTaskButton = document.getElementById('addTaskButton');
-    const createTaskSection = document.getElementById('create-task');
-
-    if(addTaskButton && createTaskSection){
-        $(addTaskButton).on('click', () => {
-            $(createTaskSection).toggleClass('hidden visible');
-            $(createTaskSection).css('display', 'flex');
-        });
-    }
 }
 
 // Funcção para enviar uma nova tarefa para a API
@@ -96,6 +86,9 @@ export async function postTask(taskData){
 
         const newTask = await response.json();
         console.log('Tarefa adicionada com sucesso: ', newTask)
+
+        // Atualiza a lista de tarefas após adicionar uma nova
+        fetchTasks();
     }catch (error){
         console.error('Error posting task:', error);
     }
@@ -110,14 +103,14 @@ export function setupTaskForm(){
             event.preventDefault();
 
             // Pega os valores do formulário usando os IDs
-            const titulo = document.getElementById('taskTitle').value;
-            const descricao = document.getElementById('taskDescription').value;
+            const title = document.getElementById('taskTitle').value;
+            const description = document.getElementById('taskDescription').value;
 
             if(titulo && descricao){
                 const newTaskData = {
-                    titulo: titulo,
-                    descricao: descricao,
-                    concluida: false
+                    title: title,
+                    description: description,
+                    completed: false
                 }
 
                 postTask(newTaskData);
@@ -130,6 +123,5 @@ export function setupTaskForm(){
 
 export function initializeApi() {
     fetchTasks();
-    setupAddTaskButton();
     setupTaskForm();
 }

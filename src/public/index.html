@@ -15,7 +15,7 @@
           <i class="bi bi-columns"></i>
           <span class="tooltip">Dashboard</span>
         </a>
-        <a href="#" class="menu-items">
+        <a href="#" class="menu-items" data-menu-items="listaTarefas">
           <i class="bi bi-card-list"></i>
           <span class="tooltip">Lista de Tarefas</span>
         </a>
@@ -90,7 +90,9 @@
         </article>
       </section>
 
+      <!-- Dashboard -->
       <section id="dashboard" class="dashboard hidden">
+        
         <article id="tasks" class="dashboard-task-panel">
           <div class="task-header">
             <h2 class="task-title bi bi-clipboard"> Tarefas</h2>
@@ -99,43 +101,37 @@
         </article>
 
         <article id="create-task" class="create-task-panel">
-          <!-- Será adicionado com javascript -->
+          <!-- Painel de estatísticas -->
         </article>
-        <div class="information-and-taskCompleted-section">
+        <section class="information-and-taskCompleted-section">
           <article class="task-information-panel">
             <!-- Será adicionado com javascript -->
           </article>
           <article class="task-completed-panel">
-            <h2 class="completed-title bi bi-clipboard"> Tarefas completadas</h2>
-            <section class="completed-card">
+            <h2 class="completed-title bi bi-clipboard" aria-hidden="true"> Tarefas completadas</h2>
+            <div class="completed-card">
               <h3 class="completed-card-value">Total: 50</h3>
-              <div class="completed-tasks-list">
-                <!-- Adicionada com javascript -->
-                <!-- Simulando tarefas completas-->
+              <div class="completed-tasks-list" role="list">
                 <div class="completed-task-item card card-task">
-                  <p class="completed-task-title">Tarefa 1</p>
-                  <img src="./img/task-img/Python.jpg" alt="Imagem linguagem Python" class="completed-task-image">
-                  <div class="completed-task-details">
-                    <p class="completed-task-date">2024-01-10</p>
-                    <p class="completed-task-completed">Concluida</p>
-                  </div>
-                </div> 
-                <div class="completed-task-item card card-task">
-                  <p class="completed-task-title">Tarefa 2</p>
-                  <img src="./img/task-img/Python.jpg" alt="Imagem linguagem Python" class="completed-task-image">
-                  <div class="completed-task-details">
-                    <p class="completed-task-date">2024-01-10</p>
-                    <p class="completed-task-completed">Concluida</p>
-                  </div>
-                </div> 
+                  <!-- Cards de tarefas concluidas adicionado com javascript -->
               </div>
-            </section>
+            </div>
           </article>
-        </div>
+        </section>
+      </section> <!-- Fim Dashboard -->
+
+      <!-- Lista de tarefas -->
+      <section id="listaTarefas" class="task-list-section hidden"> 
+        <h2 class="task-list-title bi bi-card-list"> Tarefas</h2>
+          <nav class="task-list-header">
+            <div class="search-box">
+              <label for="searchInput">Pesquisar:</label>
+              <input type="text" id="searchInput" class="task-list-input" placeholder="Pesquisar titulo da tarefa...">
+            </div>
+            <button id="pesquisarTarefaBtn" class="task-list-button"><i class="bi bi-filter"></i> Listar</button>
+          </nav>
       </section>
-
     </main>
-
   </section>
   
   <!-- Jquery -->
