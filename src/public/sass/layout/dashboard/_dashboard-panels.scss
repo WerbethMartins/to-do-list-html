@@ -4,19 +4,20 @@
 .dashboard-task-panel {
     @extend .dashboard-panel-1;
 
-    & .task-header {
+    & .tasks-header {
         display: flex;
+        flex-direction: row;
         justify-content: space-between;
         align-items: center;
         margin-bottom: 10px;
 
         & .task-title {
             font-size: 1em;
-            color: #ed7c87;
+            color: $primary;
         }
 
         & .bi-plus-circle {
-            color: #ed7c87;
+            color: $primary;
             font-size: 1.1em;
         }
 
@@ -50,10 +51,33 @@
     margin: 0 25px;
     @extend .dashboard-panel-2;
 
-    & .create-task-title {
-        font-size: 1.2em;
-        color: #ed7c87;
-        margin-bottom: 10px;
+    & .add-task-form-header{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 5px;
+
+        & .create-task-title {
+            font-size: 1.2em;
+            color: $primary;
+            margin-bottom: 10px;
+        }
+
+        & .close-form {
+            cursor: pointer;
+            border: $color-borber;
+            background-color: #f51414;
+            color: #f8f8f8;
+            padding: 2px;
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+            transition: all 0.8s ease;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
     }
 
     & .task-form {
@@ -143,54 +167,54 @@
     }
 }
 
-    .task-information-panel {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-        @extend .dashboard-panel-3;
+.task-information-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    @extend .dashboard-panel-3;
 
-        & .information-title {
-            font-size: 1.2em;
-            color: #ed7c87;
+    & .information-title {
+        font-size: 1.2em;
+        color: $primary;
+        margin-bottom: 10px;
+    }
+    
+    .information-card {
+        display: flex;
+        flex-direction: row;
+        padding: 5px;
+
+        & .information-card-title {
+            font-size: 1em;
+            color: #333;
             margin-bottom: 10px;
         }
-    
-        .information-card {
+
+        & .stat-item {
             display: flex;
-            flex-direction: row;
+            align-items: center;
+            margin: 0 5px;
             padding: 5px;
+            border-radius: 8px;
+            background-color: #f8f9fa;
 
-            & .information-card-title {
-                font-size: 1em;
-                color: #333;
-                margin-bottom: 10px;
-            }
-
-            & .stat-item {
+            & .stat-icon {
                 display: flex;
                 align-items: center;
-                margin: 0 5px;
-                padding: 5px;
-                border-radius: 8px;
-                background-color: #f8f9fa;
+                justify-content: center;
+                border-radius: 50%;
+                margin-right: 5px;
+                font-weight: bold;
+            }
 
-                & .stat-icon {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    border-radius: 50%;
-                    margin-right: 5px;
-                    font-weight: bold;
-                }
-
-                & .stat-label {
-                    flex: 1;
-                    font-weight: 500;
-                }
+            & .stat-label {
+                flex: 1;
+                font-weight: 500;
             }
         }
     }
+}
 
 .task-completed-panel {
     display: flex;
@@ -201,7 +225,7 @@
 
     .completed-title{
         font-size: 1.2em;
-        color: #ed7c87;
+        color: $primary;
         margin-bottom: 10px;
     }
 
@@ -223,19 +247,19 @@
             gap: 5px;
             width: 100%;
 
-            .completed-task-image-and-description-section {
+            & .completed-task-image-and-description-section {
                 display: flex;
                 flex-direction: row;
                 align-items: center;
                 gap: 10px;
 
-                .completed-task-title {
+                & .completed-task-title {
                     font-size: 1em;
                     font-weight: bold;
                     color: #333;
                 }
 
-                .completed-task-image {
+                & .completed-task-image {
                     width: 100%;
                     max-width: 70px;
                     height: auto;
@@ -244,20 +268,20 @@
                 }
             }
 
-            .completed-task-item {
+           & .completed-task-item {
                 width: 100%;
 
-                .completed-task-details {
+                 & .completed-task-details {
                     display: flex;
                     flex-direction: row;
                     gap: 10px;
 
-                    .completed-task-date {
+                     & .completed-task-date {
                         font-size: 0.8em;
                         color: #666;
                     }
 
-                    .completed-task-completed {
+                    & .completed-task-completed {
                         font-size: 0.8em;
                         color: #87f861;
                     }

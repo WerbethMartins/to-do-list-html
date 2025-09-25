@@ -1,0 +1,63 @@
+@use '../../global/variables.scss' as *;
+
+.task-list-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 15px;
+    width: 100%;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+
+    &.task-list-title, .bi-card-list, .bi-search, .bi-card-checklist {
+        color: $primary;
+    }
+
+    & .task-list-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px;
+        margin: 5px;
+        width: 100%;
+
+        & .search-box {
+            border: $color-borber;
+            border-radius: 8px;
+            padding: 5px;
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        & .filter-box {
+            border: $color-borber;
+            border-radius: 8px;
+            padding: 5px;
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+
+            select {
+                border-radius: 8px;
+                padding: 5px;
+            }
+        }
+
+        & .filter-clear-buttons-section {
+            display: flex;
+            flex-direction: row;
+            border: $color-borber;
+            border-radius: 8px;
+            padding: 5px;
+
+            .bi-stars, .bi-filter {
+                color: $primary;
+            }
+
+            button {
+                margin: 5px;
+            }
+        }
+    }
+}

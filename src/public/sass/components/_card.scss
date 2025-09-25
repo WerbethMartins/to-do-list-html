@@ -5,8 +5,17 @@
     @include cardTarefa;
 
     & .card-title {
+        border-bottom: 1px solid $color-borber;
         font-size: 1.2em;
         margin-bottom: 5px;
+    }
+
+    & .card-image {
+        width: 100%;
+        max-width: 70px;
+        height: auto;
+        border-radius: 5px;
+        margin: 5px 0;
     }
 
     & .card-description {

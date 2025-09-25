@@ -18,14 +18,26 @@ export function debounce(func, wait, immediate) {
 export function setupAddTaskButton() {
     const tasksContainer = document.getElementById('tasks');
     const addTaskButton = document.getElementById('addTaskButton');
+    const closeForm = document.querySelector('.close-form');
     const createTaskSection = document.getElementById('create-task');
 
     if(addTaskButton && createTaskSection){
         $(addTaskButton).on('click', () => {
-            $(createTaskSection).toggleClass('hidden visible');
-            $(tasksContainer).toggleClass('hidden');
             $(createTaskSection).css('display', 'flex');
             $(tasksContainer).css('display', 'none');
+        });
+    }
+}
+
+export function setupCloseFormAddTask(){
+    const tasksContainer = document.getElementById('tasks');
+    const closeForm = document.querySelector('.close-form');
+    const createTaskSection = document.getElementById('create-task');
+
+    if(closeForm && tasksContainer) {
+        $(closeForm).on('click', () => {
+            $(tasksContainer).show();
+            $(createTaskSection).hide();
         });
     }
 }
@@ -39,7 +51,10 @@ export function setupCreateTaskPanel() {
     createTaskPanel.innerHTML =  '';
 
     createTaskPanel.innerHTML = `
-        <h2 class="create-task-title bi bi-clipboard"> Crie uma tarefa</h2>
+        <div class="add-task-form-header">
+            <h2 class="create-task-title bi bi-clipboard"> Crie uma tarefa</h2>
+            <button type=button class="close-form">X</button>
+        </div>
         <form action="#" id="task-form" class="task-form">
             <div class="up-side">
                 <label for="taskTitle"> Titulo:</label>
@@ -48,7 +63,7 @@ export function setupCreateTaskPanel() {
 
                 <div class="task-status">
                     <label for="task-completed">Status:</label>
-                    <p id="task-completed" class="task-status-paragraph">Automático</p>
+                    <p id="task-completed" class="task-status-paragraph">Em andamento</p>
                 </div>
             </div>
 
@@ -138,7 +153,7 @@ export function setupTaskCompletedPanel(tasks){
         <div class="completed-card">
             <h3 class="completed-card-value">Total: ${completedTasks.length}</h3>
             <div class="completed-tasks-list" id="completed-tasks-list">
-                <!-- Tarefas serão inseridas aqui -->
+                
             </div>
         </div>
     `
@@ -174,6 +189,7 @@ export function initializeSetupDashboardPage(){
     updateTaskStatistics();
     setupTaskInformationPanel();
     setupTaskCompletedPanel();
+    setupCloseFormAddTask();
 }
 
 document.addEventListener('DOMContentLoaded', () => {

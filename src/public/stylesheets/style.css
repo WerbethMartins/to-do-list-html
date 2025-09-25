@@ -500,21 +500,22 @@ a {
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
 
-.dashboard-task-panel .task-header {
+.dashboard-task-panel .tasks-header {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
 }
-.dashboard-task-panel .task-header .task-title {
+.dashboard-task-panel .tasks-header .task-title {
   font-size: 1em;
-  color: #ed7c87;
+  color: #e91e63;
 }
-.dashboard-task-panel .task-header .bi-plus-circle {
-  color: #ed7c87;
+.dashboard-task-panel .tasks-header .bi-plus-circle {
+  color: #e91e63;
   font-size: 1.1em;
 }
-.dashboard-task-panel .task-header .task-button {
+.dashboard-task-panel .tasks-header .task-button {
   cursor: pointer;
   border: none;
   border-radius: 5px;
@@ -540,10 +541,30 @@ a {
   align-items: flex-start;
   margin: 0 25px;
 }
-.create-task-panel .create-task-title {
+.create-task-panel .add-task-form-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 5px;
+}
+.create-task-panel .add-task-form-header .create-task-title {
   font-size: 1.2em;
-  color: #ed7c87;
+  color: #e91e63;
   margin-bottom: 10px;
+}
+.create-task-panel .add-task-form-header .close-form {
+  cursor: pointer;
+  border: #dddddd;
+  background-color: #f51414;
+  color: #f8f8f8;
+  padding: 2px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  transition: all 0.8s ease;
+}
+.create-task-panel .add-task-form-header .close-form:hover {
+  transform: scale(1.1);
 }
 .create-task-panel .task-form {
   display: flex;
@@ -628,7 +649,7 @@ a {
 }
 .task-information-panel .information-title {
   font-size: 1.2em;
-  color: #ed7c87;
+  color: #e91e63;
   margin-bottom: 10px;
 }
 .task-information-panel .information-card {
@@ -670,7 +691,7 @@ a {
 }
 .task-completed-panel .completed-title {
   font-size: 1.2em;
-  color: #ed7c87;
+  color: #e91e63;
   margin-bottom: 10px;
 }
 .task-completed-panel .completed-card {
@@ -757,7 +778,7 @@ a {
   padding: 5px;
 }
 
-.card, .favorite-task-card {
+.card, .list-box .task-list-item, .favorite-task-card {
   cursor: pointer;
   border: 1px solid #dddddd;
   border-radius: 10px;
@@ -765,29 +786,37 @@ a {
   margin: 5px;
   transition: all 0.3s ease;
 }
-.card .card-title, .favorite-task-card .card-title {
+.card .card-title, .list-box .task-list-item .card-title, .favorite-task-card .card-title {
+  border-bottom: 1px solid #dddddd;
   font-size: 1.2em;
   margin-bottom: 5px;
 }
-.card .card-description, .favorite-task-card .card-description {
+.card .card-image, .list-box .task-list-item .card-image, .favorite-task-card .card-image {
+  width: 100%;
+  max-width: 70px;
+  height: auto;
+  border-radius: 5px;
+  margin: 5px 0;
+}
+.card .card-description, .list-box .task-list-item .card-description, .favorite-task-card .card-description {
   font-size: 0.9em;
   color: #555;
 }
-.card .card-footer, .favorite-task-card .card-footer {
+.card .card-footer, .list-box .task-list-item .card-footer, .favorite-task-card .card-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 10px;
 }
-.card .card-footer .card-date, .favorite-task-card .card-footer .card-date {
+.card .card-footer .card-date, .list-box .task-list-item .card-footer .card-date, .favorite-task-card .card-footer .card-date {
   font-size: 0.8em;
   color: #888;
 }
-.card .card-footer .card-status, .favorite-task-card .card-footer .card-status {
+.card .card-footer .card-status, .list-box .task-list-item .card-footer .card-status, .favorite-task-card .card-footer .card-status {
   font-size: 0.8em;
   color: #58c8e4;
 }
-.card .card-footer .card-button, .favorite-task-card .card-footer .card-button {
+.card .card-footer .card-button, .list-box .task-list-item .card-footer .card-button, .favorite-task-card .card-footer .card-button {
   cursor: pointer;
   color: #fff;
   border: none;
@@ -796,13 +825,13 @@ a {
   padding: 5px 10px;
   transition: all 0.3s ease;
 }
-.card .card-footer .card-button:hover, .favorite-task-card .card-footer .card-button:hover {
+.card .card-footer .card-button:hover, .list-box .task-list-item .card-footer .card-button:hover, .favorite-task-card .card-footer .card-button:hover {
   transform: translateY(-5px);
   background-color: #d65a63;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
 
-.card:hover, .favorite-task-card:hover {
+.card:hover, .list-box .task-list-item:hover, .favorite-task-card:hover {
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
   transform: scale(1.02);
 }
@@ -843,15 +872,72 @@ a {
   width: 100%;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
 }
+.task-list-section.task-list-title, .task-list-section .bi-card-list, .task-list-section .bi-search, .task-list-section .bi-card-checklist {
+  color: #e91e63;
+}
 .task-list-section .task-list-header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid #000;
   padding: 5px;
   margin: 5px;
   width: 100%;
+}
+.task-list-section .task-list-header .search-box {
+  border: #dddddd;
+  border-radius: 8px;
+  padding: 5px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+.task-list-section .task-list-header .filter-box {
+  border: #dddddd;
+  border-radius: 8px;
+  padding: 5px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+.task-list-section .task-list-header .filter-box select {
+  border-radius: 8px;
+  padding: 5px;
+}
+.task-list-section .task-list-header .filter-clear-buttons-section {
+  display: flex;
+  flex-direction: row;
+  border: #dddddd;
+  border-radius: 8px;
+  padding: 5px;
+}
+.task-list-section .task-list-header .filter-clear-buttons-section .bi-stars, .task-list-section .task-list-header .filter-clear-buttons-section .bi-filter {
+  color: #e91e63;
+}
+.task-list-section .task-list-header .filter-clear-buttons-section button {
+  margin: 5px;
+}
+
+.list-box {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  padding: 5px;
+  width: 100%;
+  margin: 10px 0;
+}
+.list-box .task-list-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 50%;
+}
+.list-box .task-list-item .task-list-image-and-description-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+.list-box .task-list-item .task-list-image-and-description-section img {
+  max-width: 150px;
 }
 
 /*# sourceMappingURL=style.css.map */
