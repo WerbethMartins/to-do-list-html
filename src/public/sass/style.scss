@@ -1,4 +1,5 @@
 @use 'components/navbar.scss';
+@use 'global/global-classes.scss';
 @use 'global/resets.scss';
 @use 'global/variables.scss';
 @use 'layout/home-page.scss';
@@ -6,5 +7,6 @@
 @use 'components/card.scss';
 @use 'components/panel.scss';
 @use 'components/button.scss';
-@use 'layout/lista-tarefas/task-list.scss';
-@use 'layout/lista-tarefas/list-box.scss';
+@use 'layout/to-do-list/task-list.scss';
+@use 'layout/to-do-list/list-box.scss';
+@use 'layout/settings/setting-section.scss';

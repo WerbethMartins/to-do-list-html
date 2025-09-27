@@ -35,7 +35,7 @@ function addTitlePerItem(menuKey) {
     const titles = {
         dashboard: 'Dashboard | Crie uma nova tarefa, veja suas tarefas concluidas e mais.',
         listaTarefas: 'Lista de Tarefas | Aqui estão suas tarefas',
-        settings: 'Aqui estão suas tarefas | Settings',
+        settings: 'Configurações | Está é sua página de configuração do sistema',
         help: 'Aqui estão suas tarefas | Help'
     };
 

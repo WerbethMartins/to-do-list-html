@@ -1,12 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-// A lista de tarefas agora é uma variável global do módulo
-let tasks = [
-    { id: 1, titulo: 'Estudar Node.js', concluida: false },
-    { id: 2, titulo: 'Fazer o CSS', concluida: false },
-];
-
 // Rota GET para retornar todas as tarefas
 router.get('/tarefas', function(req, res, next) {
     res.json(tasks);

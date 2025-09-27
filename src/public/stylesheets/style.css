@@ -101,6 +101,29 @@
     padding: 10px 0;
   }
 }
+.primary-color {
+  color: #e91e63;
+}
+
+.title-color {
+  color: #9f9797;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: #cdc5c5;
+  margin: 2px 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.visible {
+  display: flex !important;
+}
+
 * {
   font-family: 100%/1.5 "Roboto Condensed", sans-serif;
   padding: 0;
@@ -128,19 +151,8 @@ a {
   color: inherit;
 }
 
-.divider {
-  width: 100%;
-  height: 1px;
-  background-color: #cdc5c5;
-  margin: 2px 0;
-}
-
-.hidden {
-  display: none !important;
-}
-
-.visible {
-  display: flex !important;
+li {
+  list-style-type: none;
 }
 
 @media (max-width: 600px) {
@@ -872,7 +884,7 @@ a {
   width: 100%;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
 }
-.task-list-section.task-list-title, .task-list-section .bi-card-list, .task-list-section .bi-search, .task-list-section .bi-card-checklist {
+.task-list-section .bi-card-list, .task-list-section .bi-search, .task-list-section .bi-card-checklist {
   color: #e91e63;
 }
 .task-list-section .task-list-header {
@@ -938,6 +950,63 @@ a {
 }
 .list-box .task-list-item .task-list-image-and-description-section img {
   max-width: 150px;
+}
+
+.setting-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+}
+.setting-nav .setting-navbar-item {
+  border-right: 1px solid #000;
+  padding: 5px;
+  margin: 5px;
+  transition: all 0.5s ease;
+}
+.setting-nav .setting-navbar-item:hover {
+  border: 2px solid #f8bbd0;
+  border-radius: 8px;
+}
+
+.setting-page-body-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  border: 1px solid #000;
+  padding: 5px;
+}
+.setting-page-body-box .perfil-settings-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 5px;
+}
+.setting-page-body-box .perfil-settings-section .setting-profile-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 10px 0;
+}
+.setting-page-body-box .perfil-settings-section .setting-profile-section .setting-profile-img {
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  width: 50px;
+  height: 50px;
+}
+
+.setting-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border: 1px solid #dddddd;
+  padding: 10px;
+  margin: 10px 0;
 }
 
 /*# sourceMappingURL=style.css.map */

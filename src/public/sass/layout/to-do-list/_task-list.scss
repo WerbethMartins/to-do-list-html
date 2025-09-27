@@ -12,7 +12,7 @@
     width: 100%;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
 
-    &.task-list-title, .bi-card-list, .bi-search, .bi-card-checklist {
+    & .bi-card-list, .bi-search, .bi-card-checklist {
         color: $primary;
     }
 

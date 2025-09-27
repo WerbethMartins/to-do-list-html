@@ -19,7 +19,7 @@
           <i class="bi bi-card-list"></i>
           <span class="tooltip">Lista de Tarefas</span>
         </a>
-        <a href="#" class="menu-items">
+        <a href="#" class="menu-items" data-menu-items="settings">
           <i class="bi bi-gear"></i>
           <span class="tooltip">Configurações</span>
         </a>
@@ -122,7 +122,7 @@
 
       <!-- Lista de tarefas -->
       <section id="listaTarefas" class="task-list-section hidden"> 
-        <h2 class="task-list-title bi bi-card-list"> Lista de Tarefas</h2>
+        <h2 class="task-list-title primary-color"><i class="bi bi-card-list"></i> Lista de Tarefas</h2>
           <nav class="task-list-header">
             <div class="search-box">
               <label for="searchInput"><i class="bi bi-search"></i></label>
@@ -147,6 +147,30 @@
           <article id="taskListBox" class="list-box">
             <!-- O card de tarefas será adicionado com javascript -->
           </article>
+      </section>
+
+      <!-- Settings -->
+      <section id="settings" class="setting-section hidden">
+        <h2 class="setting-title primary-color"><i class="bi bi-gear"></i> Settings</h2>
+        <nav class="setting-nav">
+          <li class="setting-navbar-item"><a href="#perfil-settings">Configurações do perfil</a></li>
+          <li class="setting-navbar-item"><a href="#login-and-securityu">Login e Segurança</a></li>
+          <li class="setting-navbar-item"><a href="#interface">Interface</a></li>
+          <li class="setting-navbar-item"><a href="#addtional settings">Configuraçõe adicionais</a></li>
+        </nav>
+        <div class="divider"></div>
+        <article id="setting-page-body-box" class="setting-page-body-box">
+          <div id="perfil-settings" class="perfil-settings-section visible">
+            <h4 class="setting-profile-title title-color">Sua foto de perfil</h4>
+            <div class="setting-profile-section">
+              <img src="./img/profile-img/profile-icon-design-free-vector.jpg" 
+              class="setting-profile-img" alt="Imagem de perfil do usuário">
+              
+              <input type="file" id="setting-choose-profile-img" name="profile-img" 
+                accept="image/*" class="setting-profile-input file-input">
+            </div>
+          </div>
+        </article>
       </section>
     </main>
   </section>
