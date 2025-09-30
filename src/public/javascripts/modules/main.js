@@ -1,8 +1,9 @@
 import {initializeApi} from './dashboard/tarefas.js';
 import { initializeSetupDashboardPage } from './dashboard/panels.js';
 import {initializeMenu} from '../modules/navbar/pagination.js';
-import { initializeSetupHomePage } from './Home/home-panels.js';
+import { initializeSetupHomePage } from './home/home-panels.js';
 import { initializeSetupTaskList } from './task-list/task-list.js';
+import {initializeSetupSettingsPage } from './setting/profileSection.js';
 
 $(document).ready(() => {
     initializeApi();
@@ -10,4 +11,5 @@ $(document).ready(() => {
     initializeMenu();
     initializeSetupHomePage();
     initializeSetupTaskList();
+    initializeSetupSettingsPage();
 });

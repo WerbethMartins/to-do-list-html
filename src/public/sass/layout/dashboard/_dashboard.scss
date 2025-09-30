@@ -1,3 +1,4 @@
+@use '../../global/variables' as *;
 @use './dashboard-panels.scss';
 
 
@@ -18,7 +19,7 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: flex-start;
-    border: 1px solid #000;
+    border: 1px solid $color-borber;
     border-radius: 5px;
     padding: 2%;
     margin: 15px;

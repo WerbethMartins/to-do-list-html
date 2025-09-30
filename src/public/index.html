@@ -156,21 +156,55 @@
           <li class="setting-navbar-item"><a href="#perfil-settings">Configurações do perfil</a></li>
           <li class="setting-navbar-item"><a href="#login-and-securityu">Login e Segurança</a></li>
           <li class="setting-navbar-item"><a href="#interface">Interface</a></li>
-          <li class="setting-navbar-item"><a href="#addtional settings">Configuraçõe adicionais</a></li>
+          <li class="setting-navbar-item"><a href="#addtional settings">Configurações adicionais</a></li>
         </nav>
         <div class="divider"></div>
-        <article id="setting-page-body-box" class="setting-page-body-box">
-          <div id="perfil-settings" class="perfil-settings-section visible">
-            <h4 class="setting-profile-title title-color">Sua foto de perfil</h4>
-            <div class="setting-profile-section">
-              <img src="./img/profile-img/profile-icon-design-free-vector.jpg" 
-              class="setting-profile-img" alt="Imagem de perfil do usuário">
-              
-              <input type="file" id="setting-choose-profile-img" name="profile-img" 
-                accept="image/*" class="setting-profile-input file-input">
+        <article id="settings-page" class="settings-page">
+          <!-- Seção de configuração de esolha da imagem do usuário -->
+          <div id="setting-profile" class="profile-page__section visible">
+            <h4 class="settings-page__title title-color">Sua foto de perfil</h4>
+            <div class="profile">
+              <!-- Label, imagem, input e botões -->
+            </div>
+            <div class="divider"></div>
+            <div class="profile-page__information">
+              <form action="POST" class="profile-page__form">
+                <div class="name-lastname-section">
+                  <div class="name-section">
+                    <label for="name">Nome:</label> 
+                    <input type="text" id="name" class="input name-input">
+                  </div>
+                  <div class="lastname-section">
+                    <label for="lastName">Sobrenome:</label>
+                    <input type="text" id="lastName" class="input last-name-input">
+                  </div>
+                </div>
+                <div class="username-email-section">
+                  <div class="username-section">
+                    <label for="username">Nome de usuário:</label>
+                    <input type="text" id="username" class="input username-input">
+                  </div>
+                  <div class="email-section">
+                    <label for="email">Email:</label>
+                    <input type="text" id="email" class="input email-input">
+                  </div>
+                </div>
+                <div class="phonenumber-section">
+                  <label for="phoneNumber">Número de telefone:</label>
+                  <input type="text" id="phoneNumber" class="input phone-number-input">
+                </div>
+                <div class="bio-section">
+                  <label for="bio">Biografia:</label>
+                  <textarea type="text" id="bio" class="bio-textarea"></textarea>
+                </div>
+                <div class="form-button-section">
+                  <button type="button" id="updateProfile" class="btn btn-update-profile">Atualizar perfil</button>
+                </div>
+              </form>
             </div>
           </div>
         </article>
+
       </section>
     </main>
   </section>

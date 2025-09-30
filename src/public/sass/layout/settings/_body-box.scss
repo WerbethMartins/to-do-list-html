@@ -1,33 +1,38 @@
 @use '../../global/variables' as *;
-
-.setting-page-body-box {
+@use './settings-profile-section';
+.settings-page {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    border: 1px solid #000;
     padding: 5px;
+    width: 100%;
 
-    & .perfil-settings-section {
+    & .profile-page__section {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
         padding: 5px;
+        width: 100%;
 
-        & .setting-profile-section {
+        & .profile{
             display: flex;
             flex-direction: row;
             justify-content: center;
             align-items: flex-start;
             margin: 10px 0;
 
-            & .setting-profile-img {
-            border: 1px solid $color-borber;
-            border-radius: 8px ;
-            width: 50px;
-            height: 50px;
-            }
+            /* Configurações da label, imagem, input e botão */
+        }
+
+        & .profile-page__information {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 5px;
+            width: 100%;
         }
     }
 }
