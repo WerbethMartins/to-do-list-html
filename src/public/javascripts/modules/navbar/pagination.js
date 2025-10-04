@@ -18,11 +18,8 @@ export function setupItemsMenu(){
     const itemsMenu = $('.menu-items');
 
     // Adiciona evento de clique a cada item clicado
-    itemsMenu.each(function(index){
+    itemsMenu.each(function(){
         $(this).on('click', function() {
-             // Debug 
-            console.log('Item clicked:', index);
-
             // Atualiza o título principal com base no item do menu clicado
             addTitlePerItem($(this).data('menu-items'));
             itemMenuControll($(this).data('menu-items'));
@@ -34,7 +31,7 @@ export function setupItemsMenu(){
 function addTitlePerItem(menuKey) {
     const titles = {
         dashboard: 'Dashboard | Crie uma nova tarefa, veja suas tarefas concluidas e mais.',
-        listaTarefas: 'Lista de Tarefas | Aqui estão suas tarefas',
+        todoList: 'Lista de Tarefas | Aqui estão suas tarefas',
         settings: 'Configurações | Está é sua página de configuração do sistema',
         help: 'Aqui estão suas tarefas | Help'
     };
@@ -44,7 +41,7 @@ function addTitlePerItem(menuKey) {
 }
 
 function itemMenuControll(menuKey){
-    const allPanels = $('#home, #dashboard, #listaTarefas, #settings, #help');
+    const allPanels = $('#home, #dashboard, #todoList, #settings, #help');
     
     allPanels.addClass('hidden').removeClass('visible');
     
@@ -60,4 +57,5 @@ function itemMenuControll(menuKey){
 export function initializeMenu(){
     setupItemsMenu();
 }
+
 

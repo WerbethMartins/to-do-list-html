@@ -11,11 +11,11 @@
   <section id="body" class="container contents-body">
     <header id="header" class="header">
       <nav id="navbar" class="navbar">
-        <a href="#" class="menu-items" data-menu-items="dashboard">
+        <a href="#Dashboard" class="menu-items" data-menu-items="dashboard">
           <i class="bi bi-columns"></i>
           <span class="tooltip">Dashboard</span>
         </a>
-        <a href="#" class="menu-items" data-menu-items="listaTarefas">
+        <a href="#todoList" class="menu-items" data-menu-items="todoList">
           <i class="bi bi-card-list"></i>
           <span class="tooltip">Lista de Tarefas</span>
         </a>
@@ -121,7 +121,7 @@
       </section> <!-- Fim Dashboard -->
 
       <!-- Lista de tarefas -->
-      <section id="listaTarefas" class="task-list-section hidden"> 
+      <section id="todoList" class="task-list-section hidden"> 
         <h2 class="task-list-title primary-color"><i class="bi bi-card-list"></i> Lista de Tarefas</h2>
           <nav class="task-list-header">
             <div class="search-box">
@@ -151,59 +151,75 @@
 
       <!-- Settings -->
       <section id="settings" class="setting-section hidden">
-        <h2 class="setting-title primary-color"><i class="bi bi-gear"></i> Settings</h2>
+        <h2 class="setting-title primary-color"><i class="bi bi-gear"></i></h2>
         <nav class="setting-nav">
-          <li class="setting-navbar-item"><a href="#perfil-settings">Configurações do perfil</a></li>
-          <li class="setting-navbar-item"><a href="#login-and-securityu">Login e Segurança</a></li>
-          <li class="setting-navbar-item"><a href="#interface">Interface</a></li>
-          <li class="setting-navbar-item"><a href="#addtional settings">Configurações adicionais</a></li>
+          <a href="#perfilSettings" class="setting-navbar-item" data-setting-navbar-item="perfilSettings">Configurações do perfil</a>
+          <a href="#securite" class="setting-navbar-item" data-setting-navbar-item="securite">Segurança</a>
+          <a href="#interface" class="setting-navbar-item" data-setting-navbar-item="interface">Interface</a>
+          <a href="#additional-settings" class="setting-navbar-item" data-setting-navbar-item="additionalSettings">Configurações adicionais</a>
         </nav>
+
         <div class="divider"></div>
-        <article id="settings-page" class="settings-page">
+
+        <article id="perfilSettings" class="settings-page visible">
           <!-- Seção de configuração de esolha da imagem do usuário -->
-          <div id="setting-profile" class="profile-page__section visible">
+          <div class="profile-page__section">
             <h4 class="settings-page__title title-color">Sua foto de perfil</h4>
             <div class="profile">
               <!-- Label, imagem, input e botões -->
             </div>
             <div class="divider"></div>
-            <div class="profile-page__information">
+            <!-- Formulário de informação do usuário -->
+            <div id="profileForm" class="profile-page__information">
               <form action="POST" class="profile-page__form">
-                <div class="name-lastname-section">
-                  <div class="name-section">
-                    <label for="name">Nome:</label> 
-                    <input type="text" id="name" class="input name-input">
-                  </div>
-                  <div class="lastname-section">
-                    <label for="lastName">Sobrenome:</label>
-                    <input type="text" id="lastName" class="input last-name-input">
-                  </div>
-                </div>
-                <div class="username-email-section">
-                  <div class="username-section">
-                    <label for="username">Nome de usuário:</label>
-                    <input type="text" id="username" class="input username-input">
-                  </div>
-                  <div class="email-section">
-                    <label for="email">Email:</label>
-                    <input type="text" id="email" class="input email-input">
-                  </div>
-                </div>
-                <div class="phonenumber-section">
-                  <label for="phoneNumber">Número de telefone:</label>
-                  <input type="text" id="phoneNumber" class="input phone-number-input">
-                </div>
-                <div class="bio-section">
-                  <label for="bio">Biografia:</label>
-                  <textarea type="text" id="bio" class="bio-textarea"></textarea>
-                </div>
-                <div class="form-button-section">
-                  <button type="button" id="updateProfile" class="btn btn-update-profile">Atualizar perfil</button>
-                </div>
+                <!-- Dados do formulário -->
               </form>
             </div>
           </div>
         </article>
+
+          <!-- Página de segurança -->
+          <article id="securite" class="settings-page hidden">
+            <div class="security-section">
+              <h5>Alterar o nome de usuário</h5>
+              <form class="security-form">
+                <input type="text" placeholder="Novo nome de usuário">
+                <button type="submit"class="btn btn-update-username">Atualizar senha</button>
+              </form>
+            </div>
+            <div class="security-section">
+              <h5>Alterar a senha</h5>
+              <form class="security-form">
+                <input type="password" placeholder="Senha atual">
+                <input type="password" placeholder="Nova senha">
+                <input type="password" placeholder="Confirmar nova senha">
+                <button type="submit"class="btn btn-update-password">Atualizar senha</button>
+              </form>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="security-section">
+              <h5>Sessões ativas</h5>
+              <ul class="sessions-list">
+                <li>Chrome - Windows 10 (último acesso: hoje 14:23)</li>
+                <li>Firefox - Android (último acesso: ontem 20:47)</li>
+              </ul>
+              <button class="btn">Encerrar todas sessões</button>
+            </div>
+          </article>
+
+          <!-- Página de interface -->
+          <article id="interface" class="settings-page hidden">
+            <h4 class="settings-page__title title-color">Interface</h4>
+            ...
+          </article>
+
+          <!-- Página adicionais -->
+          <article id="additionalSettings" class="settings-page hidden">
+            <h4 class="settings-page__title title-color">Configurações adicionais</h4>
+            ...
+          </article>
 
       </section>
     </main>
