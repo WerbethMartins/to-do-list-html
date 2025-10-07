@@ -1,0 +1,32 @@
+@use '../../global/variables' as *;
+
+.square-color {
+    cursor: pointer;
+    border: 1px solid $color-borber;
+    border-radius: 10px;
+    width: 40px;
+    height: 40px;
+    transition: all 0.5s ease;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+
+    &:active {
+        outline: 3px solid $primary;
+        transform: scale(1.1);
+    }
+}
+
+
+.purple-color-square {
+    background-color: #9222e8;
+}
+
+.red-color-square {
+    background-color: #f76666;
+}
+
+.gray-color-square {
+    background-color: #a7a1a1;
+}

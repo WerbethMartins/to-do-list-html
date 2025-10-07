@@ -3,6 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="stylesheets/style.css">
   <title>To do list</title>
@@ -11,6 +16,7 @@
   <section id="body" class="container contents-body">
     <header id="header" class="header">
       <nav id="navbar" class="navbar">
+        <img id="mainProfileImg" class="profile-img" src="./img/profile-img/profile-icon-design-free-vector.jpg" alt="Imagem de perfil do usuário">
         <a href="#Dashboard" class="menu-items" data-menu-items="dashboard">
           <i class="bi bi-columns"></i>
           <span class="tooltip">Dashboard</span>
@@ -159,7 +165,6 @@
           <a href="#additional-settings" class="setting-navbar-item" data-setting-navbar-item="additionalSettings">Configurações adicionais</a>
         </nav>
 
-        <div class="divider"></div>
 
         <article id="perfilSettings" class="settings-page visible">
           <!-- Seção de configuração de esolha da imagem do usuário -->
@@ -180,45 +185,77 @@
 
           <!-- Página de segurança -->
           <article id="securite" class="settings-page hidden">
-            <div class="security-section">
-              <h5>Alterar o nome de usuário</h5>
-              <form class="security-form">
-                <input type="text" placeholder="Novo nome de usuário">
-                <button type="submit"class="btn btn-update-username">Atualizar senha</button>
-              </form>
-            </div>
-            <div class="security-section">
-              <h5>Alterar a senha</h5>
-              <form class="security-form">
-                <input type="password" placeholder="Senha atual">
-                <input type="password" placeholder="Nova senha">
-                <input type="password" placeholder="Confirmar nova senha">
-                <button type="submit"class="btn btn-update-password">Atualizar senha</button>
-              </form>
-            </div>
-
-            <div class="divider"></div>
-
-            <div class="security-section">
-              <h5>Sessões ativas</h5>
-              <ul class="sessions-list">
-                <li>Chrome - Windows 10 (último acesso: hoje 14:23)</li>
-                <li>Firefox - Android (último acesso: ontem 20:47)</li>
-              </ul>
-              <button class="btn">Encerrar todas sessões</button>
-            </div>
+            <!-- Criado com javascript -->
           </article>
 
           <!-- Página de interface -->
           <article id="interface" class="settings-page hidden">
-            <h4 class="settings-page__title title-color">Interface</h4>
-            ...
+            <div class="interface-section">
+              <h4 class="settings-page__title title-color">Mude a aparência do seu sistema de lista de tarefas</h4>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="interface-section">
+              <div class="interface-page_texts">
+                <h4>Foto de perfil</h4>
+                <p>Customize ação da foto de perfil do menu principal</p>
+              </div>
+              <div class="actions-demonstration">
+                <img class="interface-page__img demonstration-img-1 square-shadow" src="./img/profile-img/profile-icon-design-free-vector.jpg" alt="Primeira imagem de demonstração">
+                <img class="interface-page__img demonstration-img-2 square-shadow" src="./img/profile-img/profile-icon-design-free-vector.jpg" alt="Segunda imagem de demonstração">
+                <img class="interface-page__img demonstration-img-3 square-shadow" src="./img/profile-img/profile-icon-design-free-vector.jpg" alt="Terceira imagem de demonstração">
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="interface-section">
+              <div class="interface-page_texts">
+                <h4>Preferência de interface</h4>
+                <p>Customize a aparência da sua interface</p>
+              </div>
+              <div class="interface-actions">
+                <img class="interface-theme__img" src="./img/interface-themes/dark-theme.webp" alt="Visualização do tema claro" data-theme="light">
+                <img class="interface-theme__img" src="./img/interface-themes/dark-theme.webp" alt="Visualização do tema claro" data-theme="dark">
+                <img class="interface-theme__img" src="./img/interface-themes/dark-theme.webp" alt="Visualização do tema claro" data-theme="colorful">
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="interface-section">
+              <div class="interface-page_texts">
+                <h4>Preferência de cor do menu</h4>
+                <p>Customize a aparência do menu principal</p>
+              </div>
+              <div class="navbar-color-change">
+                <div class="square-color purple-color-square square-shadow" data-square-color="purple"></div>
+                <div class="square-color red-color-square square-shadow" data-square-color="red"></div>
+                <div class="square-color gray-color-square square-shadow" data-square-color="gray"></div>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="interface-section">
+              <div class="interface-page_texts">
+                <h4>Estilo de fonte</h4>
+                <p>Customize o estilo da fonte para textos e cabeçalhos</p>
+              </div>
+              <div class="font-style-change">
+                <div class="font-square font-roboto square-shadow" data-font="roboto">Aa</div>
+                <div class="font-square font-funnel square-shadow" data-font="Funnel">Aa</div>
+                <div class="font-square font-montserrat square-shadow" data-font="Montserrat">Aa</div>
+              </div>
+            </div>
+            
           </article>
 
           <!-- Página adicionais -->
           <article id="additionalSettings" class="settings-page hidden">
             <h4 class="settings-page__title title-color">Configurações adicionais</h4>
-            ...
+            
           </article>
 
       </section>

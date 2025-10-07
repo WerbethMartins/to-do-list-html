@@ -1,6 +1,10 @@
 @use '../../global/variables' as *;
 @use './nav';
-@use './body-box';
+@use './settings-profile-form';
+@use './settings-page';
+@use './securite-section';
+@use './interface-section';
+@use '../../components/checkbox';
 
 .setting-section {
     display: flex;
@@ -11,4 +15,6 @@
     border-radius: 8px;
     padding: 10px;
     margin: 10px 0;
+    width: auto;
+    max-height: 500px;
 }

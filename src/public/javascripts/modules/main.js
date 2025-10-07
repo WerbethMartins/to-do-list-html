@@ -4,6 +4,7 @@ import {initializeMenu} from '../modules/navbar/pagination.js';
 import { initializeSetupHomePage } from './home/home-panels.js';
 import { initializeSetupTaskList } from './task-list/task-list.js';
 import {initializeSetupSettingsPage } from './setting/profileSection.js';
+import { initializeSetupSecuriteSection } from './setting/securiteSection.js';
 
 $(document).ready(() => {
     initializeApi();
@@ -12,4 +13,5 @@ $(document).ready(() => {
     initializeSetupHomePage();
     initializeSetupTaskList();
     initializeSetupSettingsPage();
+    initializeSetupSecuriteSection();
 });

@@ -1,0 +1,67 @@
+@use '../../global/variables' as *;
+
+.interface-page__img {
+    cursor: pointer;
+    border: 1px solid $color-borber;
+    border-radius: 10px;
+    width: 50px;
+    height: 50px;
+    transition: all 0.5s ease;
+
+    &:hover {
+        box-shadow: 1px 1px 5px rgba(243, 14, 14, 0.3);
+    }
+}
+
+.demonstration-img-1 {
+    transition: all 0.5s ease;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+.demonstration-img-2 {
+    transition: all 0.5s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+    }
+}
+
+.demonstration-img-3 {
+    transition: all 0.5s ease;
+    transform-style: preserve-3d;
+
+    &:hover {
+        transform: rotateY(180deg);;
+    }
+}
+
+.demonstration-img-3::before {
+    content: '';
+    position: absolute;
+    background-color: #ffcc00;
+    width: 100%;
+    height: auto; 
+    backface-visibility: hidden;
+}
+
+.interface-theme__img {
+    cursor: pointer;
+    border: 1px solid $color-borber;
+    border-radius: 12px;
+    width: 120px;
+    height: 80px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }   
+
+    &.active {
+        outline: 3px solid var(--primary-color);
+        transform: scale(1.05);
+    }
+}
