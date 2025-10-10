@@ -18,3 +18,14 @@
     color: white;
     font-size: 0.8em;
 }
+
+// Botão para salvar as ações escolhidas da página de interface
+.btn-save-actions {
+    @extend .btn;
+    color: #fff;
+    background-color: #007bff;
+    
+    &.active { 
+        border: 2px solid #007bff; 
+    }
+}

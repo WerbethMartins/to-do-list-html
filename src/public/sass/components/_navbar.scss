@@ -5,7 +5,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: #fff;
+    color: var(--text-color);
     padding: 10px;
     width: 15%;
     height: 95vh;
@@ -16,9 +16,9 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        border: 1px solid #ccc;
+        border: var(--border-color);
         border-radius: 8px;
-        background-color: $primary-light;
+        background-color: var(--primary-light);
         padding: 10px;
         margin: 10px 0;
         width: 50%;
@@ -28,16 +28,13 @@
 
         & .profile-img {
             cursor: pointer;
+            border: var(--border-color);
             border-radius: 15px;
             margin-bottom: 5px;
             width: 50px;
             height: 50px;
             transition: all 0.5s ease;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-
-            &:hover {
-                transform: scale(1.1);
-            } 
         }
 
         .menu-items {
@@ -45,10 +42,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            color: #495057;
+            color: var(--color-icones-menu);
             font-size: 1.8rem;
+            border: var(--border-color);
             border-radius: 50%;
-            background: #f8f9fa;
+            background: var(--bg-color);
             margin: 5px 0;
             width: 45px;
             height: 45px;

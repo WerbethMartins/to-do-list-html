@@ -6,10 +6,15 @@
     border-radius: 10px;
     width: 50px;
     height: 50px;
-    transition: all 0.5s ease;
+    transition: transform 0.5s ease, box-shadow 0.3s ease;
 
     &:hover {
         box-shadow: 1px 1px 5px rgba(243, 14, 14, 0.3);
+    }
+
+    &.active {
+      outline: 3px solid var(--primary-color);
+      transform: scale(1.05);
     }
 }
 
@@ -34,7 +39,7 @@
     transform-style: preserve-3d;
 
     &:hover {
-        transform: rotateY(180deg);;
+        transform: rotateY(180deg);
     }
 }
 
@@ -53,11 +58,12 @@
     border-radius: 12px;
     width: 120px;
     height: 80px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 
     &:hover {
         transform: scale(1.05);
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        box-shadow: 1px 1px 3px rgba(243, 14, 14, 0.3);
     }   
 
     &.active {
