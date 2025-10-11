@@ -15,6 +15,7 @@
   --title-color: #9f9797;
   --bg-color: #f5f5f5;
   --text-color: #333333;
+  --text-color-2: #fff;
   --border-color: #dddddd;
   --bg-achievement: #898485;
   --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -28,6 +29,7 @@
   --title-color: #9f9797;
   --bg-color: #f5f5f5;
   --text-color: #333333;
+  --text-color-2: #fff;
   --border-color: #dddddd;
   --bg-achievement: #898485;
   --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -41,6 +43,7 @@
   --secondary-color: #2196f3;
   --title-color: #ffffff;
   --text-color: #ffffff;
+  --text-color-2: #030303;
   --border-color: #495057;
   --bg-achievement: #898485;
   --shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -1550,6 +1553,63 @@ li {
   margin: 10px 0;
   width: auto;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+.additional-setup-section {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 10px;
+  width: 100%;
+}
+.additional-setup-section .additional-setup-texts p {
+  font-size: 13px;
+}
+.additional-setup-section .additional-setup-texts .alert-message {
+  display: none;
+  color: #f32a2a;
+}
+.additional-setup-section .additional-setup-options {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 5px;
+  width: 40%;
+}
+.additional-setup-section .additional-setup-options .additional-setup-item {
+  margin: 10px 5px;
+}
+.additional-setup-section .additional-setup-options .additional-setup-item span {
+  cursor: pointer;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--primary);
+  color: var(--text-color-2);
+  padding: 5px;
+  box-shadow: 1px 1px 3px rgba(15, 15, 15, 0.3);
+  transition: all 0.5s ease;
+}
+.additional-setup-section .additional-setup-options .additional-setup-item span:hover {
+  box-shadow: 1px 1px 3px #f32a2a;
+}
+.additional-setup-section .additional-setup-options .additional-setup-item span.active {
+  outline: 3px solid var(--primary-color);
+  transform: scale(1.1);
+}
+.additional-setup-section .additional-setup-options .additional-setup-item input {
+  display: none;
+}
+.additional-setup-section .additional-setup-button {
+  margin: 10px 5px;
+}
+.additional-setup-section .additional-setup-button .info-btn {
+  background-color: var(--secondary-color);
+  color: var(--text-color-2);
+}
+.additional-setup-section .additional-setup-button .danger-btn {
+  background-color: var(--primary);
+  color: var(--text-color-2);
 }
 
 /*# sourceMappingURL=style.css.map */

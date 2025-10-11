@@ -5,6 +5,8 @@ import { initializeSetupHomePage } from './home/home-panels.js';
 import { initializeSetupTaskList } from './task-list/task-list.js';
 import {initializeSetupSettingsPage } from './setting/profileSection.js';
 import { initializeSetupSecuriteSection } from './setting/securiteSection.js';
+import { initializeSetupInterfaceSection } from './setting/interfaceSection.js';
+import { initializeAddtionalSetup } from './setting/additionalSetupSection.js';
 
 $(document).ready(() => {
     initializeApi();
@@ -14,4 +16,6 @@ $(document).ready(() => {
     initializeSetupTaskList();
     initializeSetupSettingsPage();
     initializeSetupSecuriteSection();
+    initializeSetupInterfaceSection();
+    initializeAddtionalSetup();
 });

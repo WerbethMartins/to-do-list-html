@@ -1,0 +1,70 @@
+@use '../../global/variables' as *;
+
+.additional-setup-section {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 10px;
+    width: 100%;
+
+    & .additional-setup-texts {
+        p {
+            font-size: 13px;    
+        }
+        & .alert-message {
+            display: none;
+            color: #f32a2a;
+        }
+    }
+
+    & .additional-setup-options {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 5px;
+        width: 40%;
+
+        & .additional-setup-item {
+            margin: 10px 5px;
+
+            span {
+                cursor: pointer;
+                border: 1px solid var(--border-color);
+                border-radius: 8px;
+                background-color: var(--primary);
+                color: var(--text-color-2);
+                padding: 5px;
+                box-shadow: 1px 1px 3px rgba(15, 15, 15, 0.3);
+                transition: all 0.5s ease;
+
+                &:hover {
+                    box-shadow: 1px 1px 3px #f32a2a;
+                }
+
+                &.active {
+                    outline: 3px solid var(--primary-color);
+                    transform: scale(1.1);
+                }
+            }
+
+            input {
+                display: none;
+            }
+        }
+    }
+
+    & .additional-setup-button {
+        margin: 10px 5px;
+
+        & .info-btn {
+            background-color: var(--secondary-color);
+            color: var(--text-color-2);
+        }
+
+        & .danger-btn {
+            background-color: var(--primary);
+            color: var(--text-color-2);
+        }
+    }
+}
