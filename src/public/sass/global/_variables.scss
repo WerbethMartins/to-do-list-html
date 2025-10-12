@@ -68,7 +68,28 @@ $background-achievement: #898485;
     --shadow: 0 4px 8px rgba(255, 107, 107, 0.2); // Sombra vermelha suave
 }
 
-// Vairaveis para as fontes
+// Variaveis para as cores de menu
+:root {
+    --menu-bg-color: #f8bbd0;
+}
+
+:root[data-square-color="pink"] {
+    --menu-bg-color: #f8bbd0;
+}
+
+:root[data-square-color="purple"]{
+    --menu-bg-color: #9222e8;
+}
+
+:root[data-square-color="red"]{
+    --menu-bg-color: #f12626;
+}
+
+:root[data-square-color="gray"]{
+    --menu-bg-color: #a7a1a1;
+}
+
+// Variaveis para as fontes
 :root {
     --font-family-base: 'Roboto Condensed', sans-serif;
 }

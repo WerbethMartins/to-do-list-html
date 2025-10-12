@@ -246,7 +246,7 @@ export function setupCustomizeNavbar(){
 
 export function setupNavbarColor(){
     const squareColors = document.querySelectorAll('.interface-color__square');
-    const saveButton = document.getElementById('save-action');
+    const saveNavbarButton = document.getElementById('save-action');
 
     if(!squareColors.length) return;
 
@@ -262,15 +262,15 @@ export function setupNavbarColor(){
         });
     });
 
-    if(saveButton){
-        saveButton.addEventListener('click', () => {
+    if(saveNavbarButton){
+        saveNavbarButton.addEventListener('click', () => {
             const activeColor = document.querySelector('.interface-color__square.active');
             if(!activeColor){
                 alertMessage.show();
                 return;
             }
 
-            const selectedColor = activeColor.dataset.color;
+            const selectedColor = activeColor.dataset.squareColor;
 
             localStorage.setItem('selectedColor', selectedColor);
             console.log(`Cor salva: ${selectedColor}. Recarregando...`);
