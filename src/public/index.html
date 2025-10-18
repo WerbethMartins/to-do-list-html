@@ -29,9 +29,9 @@
           <i class="bi bi-gear"></i>
           <span class="tooltip">Configurações</span>
         </a>
-        <a href="#" class="menu-items">
+        <a href="#" class="menu-items" data-menu-items="help">
           <i class="bi bi-info-square"></i>
-          <span class="tooltip">Sobre</span>
+          <span class="tooltip">Help</span>
         </a>
       </nav>
     </header>
@@ -217,10 +217,6 @@
             <div id="customizeFont" class="interface-section">
               <!-- Título, descrição e divs gerados com javascript -->
             </div>
-
-            <div class="save-actions">
-              <button id="save-action" class="btn-save-actions">Salvar Configurações</button>
-            </div>
           </article>
 
           <!-- Página adicionais -->
@@ -248,8 +244,38 @@
       </section>
 
       <!-- Help -->
-      <section>
-        
+      <section id="help" class="help-section hidden">
+        <article class="help-title-and-suppport-callout">
+          <!-- Título, parágrafo de ajuda gerados com javascript -->
+        </article>
+        <article class="help-page__question-section">
+          <!-- Input de pergunta e botão para pequisar, gerados com javascript -->
+        </article>
+        <article class="help-page__cards-section">
+          <!-- Cards de ajuda gerados com javascript -->
+        </article>
+        <article id="questionForm" class="help-page__question-form-section hidden">
+          <div class="question-form-page__header">
+            <h2 class="question-form-page__title">Preencha o formulário</h2>
+            <p class="question-form-page__description text-color">
+              Conte-nos sobre sua dúvida ou problema, nossa equipe responderá o mais breve possível. 
+              Todas as mensagens são confidenciais e protegidas!
+            </p>
+          </div>
+
+          <form action="" class="question-form-page__contact-form">
+            <label for="name" class="form-label">Nome Completo:</label>
+            <input type="text" class="form-input form__name" name="name" required>
+            <label for="email" class="form-label">E-mail:</label>
+            <input type="text" class="form-input form__email" name="email" required>
+            <label for="subject" class="form-label">Assunto:</label>
+            <input type="text" class="form-input form__name" name="subject" required>
+            <textarea id="message" name="message" class="form-input form-textarea" rows="5" 
+            placeholder="Descreva sua dúvida ou problema em detalhes..." required></textarea>
+            <button type="submit" class="btn btn-submit">Enviar Mensagem</button>
+          </form>
+          
+        </article>
       </section>
     </main>
   </section>

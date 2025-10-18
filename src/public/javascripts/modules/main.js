@@ -7,6 +7,7 @@ import {initializeSetupSettingsPage } from './setting/profileSection.js';
 import { initializeSetupSecuriteSection } from './setting/securiteSection.js';
 import { initializeSetupInterfaceSection } from './setting/interfaceSection.js';
 import { initializeAddtionalSetup } from './setting/additionalSetupSection.js';
+import { initializeHelpSection } from '../modules/help/help-section.js';
 
 $(document).ready(() => {
     initializeApi();
@@ -18,4 +19,5 @@ $(document).ready(() => {
     initializeSetupSecuriteSection();
     initializeSetupInterfaceSection();
     initializeAddtionalSetup();
+    initializeHelpSection();
 });

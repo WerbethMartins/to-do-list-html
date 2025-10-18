@@ -30,12 +30,15 @@ export function setupCustomizeProfileImg(){
                 alt="Terceira imagem de demonstração"
             >
         </div>
+        <div class="save-action-button-section">
+            <button class="btn action-save-button">✅</button>
+        </div>
     `;
 }
 
 export function setupProfileImageActions(){
     const demoImages = document.querySelectorAll('.actions-demonstration .interface-page__img');
-    const saveButton = document.getElementById('save-action');
+    const saveButton = document.querySelector('.action-save-button');
     const mainProfileImg = document.getElementById('mainProfileImg');
     const alertMessage = document.querySelector('.alert-message');
 
@@ -44,6 +47,7 @@ export function setupProfileImageActions(){
     demoImages.forEach(img => {
         img.addEventListener('click', () => {
             console.log('Imagem clicada!');
+            $(saveButton).show();
             // Remove seleção anterior
             demoImages.forEach(i => i.classList.remove('active'));
 
@@ -57,14 +61,15 @@ export function setupProfileImageActions(){
         saveButton.addEventListener('click', () => {
             const activeImg = document.querySelector('.actions-demonstration .interface-page__img.active');
             if(!activeImg){
-                alertMessage.show();
+                $(alertMessage).show();
                 return;
-            }
+            }else {
+                const action = activeImg.dataset.action;
+                localStorage.setItem('profileImgAction', action);
+                console.log(`Configuração salva: ${action}. Recarregando...`);
 
-            const action = activeImg.dataset.action;
-            localStorage.setItem('profileImgAction', action);
-            console.log(`Configuração salva: ${action}. Recarregando...`);
-            location.reload();
+                location.reload();
+            }
         });
     }
 
@@ -159,24 +164,30 @@ export function setupCustomizeThemes(){
         <div class="interface-page_texts">
             <h4 class="title-color">Preferência de interface</h4>
             <p>Customize a aparência da sua interface</p>
+            <p class="alert-message">Selecione uma opção primeiro!</p>
         </div>
         <div class="interface-actions">
             <img class="interface-theme__img" src="./img/interface-themes/dark-theme.webp" alt="Visualização do tema claro" data-theme="light">
             <img class="interface-theme__img" src="./img/interface-themes/dark-theme.webp" alt="Visualização do tema escuro" data-theme="dark">
             <img class="interface-theme__img" src="./img/interface-themes/dark-theme.webp" alt="Visualização do tema colorful" data-theme="colorful">
         </div>
+        <div class="save-themes-button-section">
+            <button type="button" class="btn themes-save-button">✅</button>
+        </div>
     `
 }
 
 export function setupThemeSelection() {
   const themeImages = document.querySelectorAll('.interface-theme__img');
-  const saveButton = document.getElementById('save-action');
+  const saveButton = document.querySelector('.themes-save-button');
+  const alertMessage = document.querySelector('.alert-message');
 
   themeImages.forEach(setupThemePreview);
   
   themeImages.forEach(img => {
         img.addEventListener('click', () => {
-            console.log('Tema clicado!');
+        console.log('Tema clicado!');
+        $(saveButton).show();
         // Remove seleção anterior
         themeImages.forEach(i => i.classList.remove('active'));
 
@@ -189,7 +200,7 @@ export function setupThemeSelection() {
         saveButton.addEventListener('click', () => {
             const activeImg = document.querySelector('.interface-theme__img.active');
             if(!activeImg){
-                alertMessage.show();
+                $(alertMessage).show();
                 return;
             }
             // Aplica o tema
@@ -201,7 +212,7 @@ export function setupThemeSelection() {
 
             document.documentElement.setAttribute('data-theme', selectedTheme);
 
-            location.reload();
+            $(saveButton).hide();
         });
     }
 
@@ -234,6 +245,7 @@ export function setupCustomizeNavbar(){
         <div class="interface-page_texts">
             <h4 class="title-color">Preferência de cor do menu</h4>
             <p>Customize a aparência do menu principal</p>
+            <p class="alert-message">Selecione uma opção primeiro!</p>
         </div>
         <div class="navbar-color-change">
             <div class="interface-color__square pink-color-square square-shadow" data-square-color="pink"></div>
@@ -241,12 +253,16 @@ export function setupCustomizeNavbar(){
             <div class="interface-color__square red-color-square square-shadow" data-square-color="red"></div>
             <div class="interface-color__square gray-color-square square-shadow" data-square-color="gray"></div>
         </div>
+        <div class="save-colors-button-section">
+            <button type="button" class="btn color-save-button">✅</button>
+        </div>
     `
 }
 
 export function setupNavbarColor(){
     const squareColors = document.querySelectorAll('.interface-color__square');
-    const saveNavbarButton = document.getElementById('save-action');
+    const saveNavbarButton = document.querySelector('.color-save-button');
+    const alertMessage = document.querySelector('.alert-message');
 
     if(!squareColors.length) return;
 
@@ -255,6 +271,7 @@ export function setupNavbarColor(){
     squareColors.forEach(color => {
         color.addEventListener('click', () => {
             console.log('Cor clicada!');
+            $(saveNavbarButton).show();
             //Remove a seleção anterior
             squareColors.forEach(i => i.classList.remove('active'));
 
@@ -266,7 +283,7 @@ export function setupNavbarColor(){
         saveNavbarButton.addEventListener('click', () => {
             const activeColor = document.querySelector('.interface-color__square.active');
             if(!activeColor){
-                alertMessage.show();
+                $(alertMessage).show();
                 return;
             }
 
@@ -277,7 +294,7 @@ export function setupNavbarColor(){
 
             document.documentElement.setAttribute('data-square-color', selectedColor);
 
-            location.reload();
+            $(saveNavbarButton).hide();
         });
     }
 
@@ -307,18 +324,23 @@ export function setupCustomizeFontSection(){
         <div class="interface-page_texts">
             <h4 class="title-color">Estilo de fonte</h4>
             <p>Customize o estilo da fonte para textos e cabeçalhos</p>
+            <p class="alert-message">Selecione uma opção primeiro!</p>
         </div>
         <div class="interface-font__change">
             <div class="font-square font-roboto square-shadow" data-font="roboto">Aa</div>
             <div class="font-square font-funnel square-shadow" data-font="Funnel">Aa</div>
             <div class="font-square font-BBH square-shadow" data-font="BBH">Aa</div>
         </div>
+        <div class="save-font-button-section">
+            <button type="button" class="btn font-save-button">✅</button>
+        </div>
     `
 }
 
 export function setupFontChange(){
     const squareFont = document.querySelectorAll('.font-square');
-    const saveButton = document.getElementById('save-action');
+    const saveButton = document.querySelector('.font-save-button');
+    const alertMessage = document.querySelector('.alert-message');
 
     if(!squareFont.length) return;
 
@@ -327,6 +349,7 @@ export function setupFontChange(){
     squareFont.forEach(font => {
         font.addEventListener('click', () => {
             console.log('Estilo de fonte clicada!');
+            $(saveButton).show();
             // Remove a seleção anterior
             squareFont.forEach(i => i.classList.remove('active'));
 
@@ -338,7 +361,7 @@ export function setupFontChange(){
         saveButton.addEventListener('click', () => {
             const activeFont = document.querySelector('.font-square.active');
             if(!activeFont){
-                alertMessage.show();
+                $(alertMessage).show();
                 return;
             }
 
@@ -349,8 +372,7 @@ export function setupFontChange(){
 
             document.documentElement.setAttribute('data-font', seletedFont);
 
-            location.reload();
-
+            $(saveButton).hide();
         });
 
         const savedFont = localStorage.getItem('selectedFont') || 'roboto';

@@ -1,0 +1,94 @@
+@use '../../global/variables' as *;
+@use './question-page';
+
+.help-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    border: 1px solid $color-borber;
+    border-radius: 5px;
+    padding: 2%;
+    margin: 10px 0;
+    width: 100%;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+
+    & .help-title-and-suppport-callout {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        padding: 5px;
+        width: 100%;
+    }
+
+    & .help-page__question-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        width: 100%;
+
+        & .help-page__question-input {
+            border: none;
+            border-radius: 8px;
+            outline: none;
+            font-size: 1rem;
+            width: 30%;   
+            padding: 5px;
+        }
+
+        & .btn-question {
+            background-color: var(--secondary-color);
+            color: #fff;
+            margin: 0px 5px;
+        }
+    }
+
+    & .help-page__cards-section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 15px;
+        padding: 10px;
+        margin: 10px 0;
+
+        & .cards-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 10px;
+
+            i {
+                font-size: 2.5rem;
+                color: var(--primary);
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            }
+            
+            & .btn-send-question{
+                background-color: var(--primary);
+                color: #fff;
+            }
+
+            & .help-page__card-button-section {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+
+                & .btn-more {
+                    background-color: var(--primary);
+                    color: #fff;
+                }
+
+                & .btn-more-information {
+                    background-color: var(--secondary-color);
+                    color: #fff;
+                    margin: 0 3px;
+                }
+            }
+        }
+    }
+}

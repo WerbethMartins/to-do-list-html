@@ -8,7 +8,7 @@
     flex-direction: row;
     align-items: flex-start;
     padding: 10px;
-    width: 60%;
+    width: 80%;
 
     .interface-page_texts {
         p {
@@ -27,7 +27,7 @@
         justify-content: space-evenly;
         align-items: center;
         padding: 5px;
-        width: 40%;
+        width: 30%;
 
     }
 
@@ -35,7 +35,7 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        gap: 1rem;
+        gap: 5px;
         padding: 10px;
         width: 50%;
     }
@@ -46,7 +46,7 @@
         align-items: center;
         gap: 1rem;
         padding: 10px;
-        width: 40%;
+        width: 30%;
     }
 
     & .interface-font__change {
@@ -55,29 +55,29 @@
         align-items: center;
         gap: 1rem;
         padding: 10px;
-        width: 40%;
+        width: 25%;
 
-            & .font-square {
-                cursor: pointer;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 1.5rem;
-                border: 1px solid $color-borber;
-                border-radius: 10px;
-                width: 40px;
-                height: 40px;
-                transition: transform 0.2s ease, box-shadow 0.2s ease;
+        & .font-square {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            border: 1px solid $color-borber;
+            border-radius: 10px;
+            width: 40px;
+            height: 40px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
 
-                &:hover {
-                    transform: scale(1.1);
-                    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-                }
-
-                &.active {
-                    outline: 3px solid var(--primary-color);
-                    transform: scale(1.1);
-                }
+            &:hover {
+                transform: scale(1.1);
+                box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
             }
+
+            &.active {
+                outline: 3px solid var(--primary-color);
+                transform: scale(1.1);
+            }
+        }
     }
 }

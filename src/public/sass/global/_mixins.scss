@@ -22,6 +22,15 @@
     transition: all 0.3s ease;
 }
 
+@mixin help-card {
+    border: 1px solid $color-borber;
+    border-radius: 8px;
+    padding: 10px;
+    width: 30%;
+    box-sizing: border-box;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
 @mixin utility-panel{ // Painel de utilidades (filtros, ordenação, etc.)
     display: flex;
     flex-direction: column;

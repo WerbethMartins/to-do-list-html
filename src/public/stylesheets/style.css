@@ -273,6 +273,15 @@
   background-color: #f8bbd0;
 }
 
+.help-card {
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  padding: 10px;
+  width: 30%;
+  box-sizing: border-box;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
 .utility-panel, .utility-panel .panel-2, .utility-panel .panel-1 {
   display: flex;
   flex-direction: column;
@@ -377,7 +386,7 @@
 }
 
 .task-submit-button {
-  background-color: #ed7c87;
+  background-color: var(--primary);
   color: white;
   font-size: 0.8em;
 }
@@ -795,7 +804,7 @@ li {
   border: #dddddd;
   background-color: #f51414;
   color: #f8f8f8;
-  padding: 2px;
+  padding: 5px;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
   transition: all 0.8s ease;
 }
@@ -814,7 +823,19 @@ li {
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-  width: 48%;
+  margin: 10px 0;
+  width: 100%;
+}
+.create-task-panel .task-form .up-side .task-input {
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 0px 5px;
+  width: 100%;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+.create-task-panel .task-form .up-side .task-input::placeholder {
+  color: #999;
 }
 .create-task-panel .task-form .up-side .task-status {
   display: flex;
@@ -848,12 +869,6 @@ li {
   height: 60px;
   box-sizing: border-box;
   resize: none;
-}
-.create-task-panel .task-form .down-side input {
-  border: none;
-  padding: 3px;
-  margin: 2px 0;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
 .create-task-panel .task-form .down-side .task-buttons {
   display: flex;
@@ -1002,7 +1017,7 @@ li {
   border: 1px solid #dddddd;
   border-radius: 5px;
   padding: 2%;
-  margin: 15px;
+  margin: 10px 0;
   width: 100%;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
 }
@@ -1022,7 +1037,7 @@ li {
   border: 1px solid #000;
   border-radius: 5px;
   padding: 10px;
-  margin: 15px;
+  margin: 10px 0;
   width: 100%;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
 }
@@ -1392,6 +1407,10 @@ li {
   backface-visibility: hidden;
 }
 
+.action-save-button {
+  display: none;
+}
+
 .interface-theme__img {
   cursor: pointer;
   border: 1px solid #dddddd;
@@ -1410,6 +1429,10 @@ li {
   transform: scale(1.05);
 }
 
+.themes-save-button {
+  display: none;
+}
+
 .interface-color__square {
   cursor: pointer;
   border: 1px solid #dddddd;
@@ -1424,6 +1447,10 @@ li {
 .interface-color__square:active {
   outline: 3px solid #e91e63;
   transform: scale(1.1);
+}
+
+.color-save-button {
+  display: none;
 }
 
 .pink-color-square {
@@ -1454,12 +1481,16 @@ li {
   font-family: "BBH Sans Bogle", sans-serif;
 }
 
+.font-save-button {
+  display: none;
+}
+
 .interface-section {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   padding: 10px;
-  width: 60%;
+  width: 80%;
 }
 .interface-section .interface-page_texts p {
   font-size: 13px;
@@ -1474,13 +1505,13 @@ li {
   justify-content: space-evenly;
   align-items: center;
   padding: 5px;
-  width: 40%;
+  width: 30%;
 }
 .interface-section .interface-actions {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 1rem;
+  gap: 5px;
   padding: 10px;
   width: 50%;
 }
@@ -1490,7 +1521,7 @@ li {
   align-items: center;
   gap: 1rem;
   padding: 10px;
-  width: 40%;
+  width: 30%;
 }
 .interface-section .interface-font__change {
   display: flex;
@@ -1498,7 +1529,7 @@ li {
   align-items: center;
   gap: 1rem;
   padding: 10px;
-  width: 40%;
+  width: 25%;
 }
 .interface-section .interface-font__change .font-square {
   cursor: pointer;
@@ -1630,6 +1661,121 @@ li {
 .additional-setup-section .additional-setup-button .danger-btn {
   background-color: var(--primary);
   color: var(--text-color-2);
+}
+
+.help-page__question-form-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 5px;
+  width: 50%;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+.help-page__question-form-section .question-form-page__description {
+  margin-top: 5px;
+  font-size: 1rem;
+  color: var(--text-color);
+}
+.help-page__question-form-section .question-form-page__contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  width: 100%;
+}
+.help-page__question-form-section .question-form-page__contact-form .form-label {
+  color: var(--text-color);
+}
+.help-page__question-form-section .question-form-page__contact-form .form-input {
+  padding: 3px;
+}
+
+.help-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  padding: 2%;
+  margin: 10px 0;
+  width: 100%;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+.help-section .help-title-and-suppport-callout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  padding: 5px;
+  width: 100%;
+}
+.help-section .help-page__question-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  width: 100%;
+}
+.help-section .help-page__question-section .help-page__question-input {
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  font-size: 1rem;
+  width: 30%;
+  padding: 5px;
+}
+.help-section .help-page__question-section .btn-question {
+  background-color: var(--secondary-color);
+  color: #fff;
+  margin: 0px 5px;
+}
+.help-section .help-page__cards-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 10px;
+  margin: 10px 0;
+}
+.help-section .help-page__cards-section .cards-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+}
+.help-section .help-page__cards-section .cards-section i {
+  font-size: 2.5rem;
+  color: var(--primary);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+.help-section .help-page__cards-section .cards-section .btn-send-question {
+  background-color: var(--primary);
+  color: #fff;
+}
+.help-section .help-page__cards-section .cards-section .help-page__card-button-section {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.help-section .help-page__cards-section .cards-section .help-page__card-button-section .btn-more {
+  background-color: var(--primary);
+  color: #fff;
+}
+.help-section .help-page__cards-section .cards-section .help-page__card-button-section .btn-more-information {
+  background-color: var(--secondary-color);
+  color: #fff;
+  margin: 0 3px;
 }
 
 /*# sourceMappingURL=style.css.map */

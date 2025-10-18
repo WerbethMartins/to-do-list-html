@@ -52,6 +52,10 @@
     backface-visibility: hidden;
 }
 
+.action-save-button {
+    display: none;
+}
+
 .interface-theme__img {
     cursor: pointer;
     border: 1px solid $color-borber;
@@ -70,4 +74,8 @@
         outline: 3px solid var(--primary-color);
         transform: scale(1.05);
     }
+}
+
+.themes-save-button {
+    display: none;
 }

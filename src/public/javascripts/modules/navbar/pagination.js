@@ -33,7 +33,7 @@ function addTitlePerItem(menuKey) {
         dashboard: 'Dashboard | Crie uma nova tarefa, veja suas tarefas concluidas e mais.',
         todoList: 'Lista de Tarefas | Aqui estão suas tarefas',
         settings: 'Configurações | Está é sua página de configuração do sistema',
-        help: 'Aqui estão suas tarefas | Help'
+        help: 'Ajuda | Sua página para solicitar ajuda'
     };
 
     // Atualiza o título principal

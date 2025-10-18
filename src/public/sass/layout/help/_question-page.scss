@@ -1,0 +1,39 @@
+@use '../../global/variables' as *;
+
+.help-page__question-form-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 5px;
+    width: 50%;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+
+    & .question-form-page__description {
+        margin-top: 5px;
+        font-size: 1rem;
+        color: var(--text-color);
+    }
+
+    & .question-form-page__contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        border: 1px solid var(--border-color);
+        border-radius: 5px;
+        padding: 10px;
+        margin: 10px 0;
+        width: 100%;
+
+        & .form-label {
+            color: var(--text-color);
+        }
+
+        & .form-input {
+            padding: 3px;
+        }
+    }
+}

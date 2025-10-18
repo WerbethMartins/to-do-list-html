@@ -67,3 +67,8 @@
     @extend .card;
     background-color: $primary-light;
 }
+
+// Card para sessão de ajuda
+.help-card {
+    @include help-card;
+}
