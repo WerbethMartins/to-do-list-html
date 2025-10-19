@@ -1770,7 +1770,7 @@ li {
 }
 .help-section .help-page__cards-section .cards-section .help-page__card-button-section .btn-more {
   background-color: var(--primary);
-  color: #fff;
+  color: var(--text-color-2);
 }
 .help-section .help-page__cards-section .cards-section .help-page__card-button-section .btn-more-information {
   background-color: var(--secondary-color);

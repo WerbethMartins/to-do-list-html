@@ -48,50 +48,36 @@ export function setupHelpCardSection() {
     ];
 
     const questionSection = document.querySelector('.help-page__cards-section');
-    const moreButton = document.querySelectorAll('.btn-more');
+    const questionForm = document.getElementById('questionForm');
 
     if (!questionSection) return;
 
     questionSection.innerHTML = '';
 
-    cardData.forEach((card) => {
+    cardData.forEach((card, index) => {
         const cardDiv = document.createElement('div');
         cardDiv.classList.add('cards-section');
         cardDiv.classList.add('help-card');
+        cardDiv.setAttribute('data-card-index', index);
     
-        // Condicional pro botão2 (como antes)
+        // Condicional pro botão2
         const button2HTML = card.button2 ? `<button type="button" class="btn btn-more-information">${card.button2}</button>` : '';
-    
+        const description2HTML = card.description2 
+            ? `<p class="help-page__card-description card-description2 hidden">${card.description2}</p>` 
+            : '';
+        
         cardDiv.innerHTML = `
             <i class="${card.icon} help-page__card-icon"></i>
             <h4 class="help-page__card-title">${card.title}</h4>
             <p class="help-page__card-description">${card.description}</p>
+            ${description2HTML}
             <div class="help-page__card-button-section">
-                <button type="button" class="btn btn-more">${card.button}</button>
+                <button type="button" class="btn btn-more" data-button="${card.button.toLowerCase().replace(/\s/g, '-')}" data-card-index="${index}">${card.button}</button>
                 ${button2HTML}
             </div>
         `;
 
-        // Adiciona a segunda descrição se existir
-        if (card.description2) {
-            const description2 = document.createElement('p');
-            description2.classList.add('help-page__card-description', 'card-description2', 'hidden');
-            description2.textContent = card.description2;
-            
-            const div = cardDiv.querySelector('.help-page__card-button-section');
-            if (div) {
-                cardDiv.insertBefore(description2, div);
-            } else {
-                cardDiv.appendChild(description2);
-            }
         
-            // Seta o texto original no btn-more
-            const btnMore = cardDiv.querySelector('.btn-more');
-            if (btnMore) {
-                btnMore.dataset.originalText = card.button;
-            }
-        }
-
         questionSection.appendChild(cardDiv);
     });
 
@@ -99,21 +85,36 @@ export function setupHelpCardSection() {
     const moreButtons = questionSection.querySelectorAll('.btn-more');
     moreButtons.forEach((button) => {
         button.addEventListener('click', () => {
-            const card = button.closest('.help-card');
-            const description2 = card.querySelector('.card-description2');
-            if (description2) {
-                const isHidden = description2.classList.contains('hidden');
-                if (isHidden) {
-                    description2.classList.remove('hidden');
-                    button.textContent = 'Ver Menos';
-                } else {
-                    description2.classList.add('hidden');
-                    button.textContent = button.dataset.originalText || 'Ver Mais';
+            const cardIndex = parseInt(button.getAttribute('data-card-index'));
+
+            if(cardIndex === 0){
+                if(questionForm){
+                    questionForm.classList.remove('hidden');
+
+                    questionForm.scrollIntoView({behavior: 'smooth'});
+
+                }
+            }else {
+                const card = button.closest('.help-card');
+                const description2 = card.querySelector('.card-description2');
+                if (description2) {
+                    const isHidden = description2.classList.contains('hidden');
+                    if (isHidden) {
+                        description2.classList.remove('hidden');
+                        button.textContent = 'Ver Menos';
+                    } else {
+                        description2.classList.add('hidden');
+                        // Use o texto original do cardData, ou defina um data-original-text se não for 'Ver Mais'
+                        // Como você está recriando tudo, podemos usar o valor fixo 'Ver Mais' se a lógica for essa.
+                        button.textContent = 'Ver Mais'; 
+                    }
                 }
             }
         });
-    });
+    }); 
 }
+
+
 
 export function initializeHelpSection() {
     setupQuestionHelpSection();
