@@ -1677,7 +1677,7 @@ li {
 }
 .help-page__question-form-section .question-form-page__description {
   margin-top: 5px;
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: var(--text-color);
 }
 .help-page__question-form-section .question-form-page__contact-form {
@@ -1695,6 +1695,96 @@ li {
 }
 .help-page__question-form-section .question-form-page__contact-form .form-input {
   padding: 3px;
+}
+
+.help-page__security-protection-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 10px;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+.help-page__security-protection-section .security-page__title-and-paragraph {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+}
+.help-page__security-protection-section .security-page__title-and-paragraph .security-page__paragraph {
+  font-size: 0.9rem;
+}
+.help-page__security-protection-section .security-page__tips-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 10px;
+  width: 100%;
+}
+.help-page__security-protection-section .security-page__tips-section .security-page__tip-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  margin: 5px 0;
+  transition: all 0.3s ease;
+}
+.help-page__security-protection-section .security-page__tips-section .security-page__tip-item:hover {
+  transform: translateX(5px);
+  color: var(--secondary-color);
+}
+.help-page__security-protection-section .security-page__tips-section .security-page__tip-item .tip-icon {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+.help-page__security-protection-section .security-page__tips-section .security-page__tip-item .tip-text {
+  font-size: 0.9rem;
+}
+.help-page__security-protection-section .security-page__howWork-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 10px;
+  width: 100%;
+}
+.help-page__security-protection-section .security-page__howWork-section .howWork-page__list-item {
+  font-size: 0.9rem;
+  margin: 5px 0;
+}
+
+.help-page__task-tutorial-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  padding: 10px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+.help-page__task-tutorial-section .taskTutorial-page__title-section {
+  margin-bottom: 15px;
+}
+.help-page__task-tutorial-section .taskTutorial-page__title-section .taskTutorial-page__title {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+.help-page__task-tutorial-section .task-tutorial__steps {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  padding: 5px;
 }
 
 .help-section {

@@ -1,0 +1,75 @@
+@use '../../global/variables' as *;
+
+.help-page__security-protection-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 10px;
+    border: 1px solid $color-borber;
+    border-radius: 8px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+
+    & .security-page__title-and-paragraph{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 8px;
+        width: 100%;
+
+        & .security-page__paragraph {
+            font-size: 0.9rem;
+        }
+    }
+
+    & .security-page__tips-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 10px;
+        margin-top: 10px;
+        width: 100%;
+
+        & .security-page__tip-item {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+
+            &:hover {
+                transform: translateX(5px);
+                color: var(--secondary-color);
+            }
+
+            & .tip-icon {
+                font-size: 1.5rem;
+                color: var(--primary-color);
+            }
+
+            & .tip-text {
+                font-size: 0.9rem;
+            }
+        }
+    }
+
+    & .security-page__howWork-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 8px;
+        margin-top: 10px;
+        width: 100%;
+
+        & .howWork-page__list-item {
+            font-size: 0.9rem;
+            margin: 5px 0;
+        }
+    }
+}

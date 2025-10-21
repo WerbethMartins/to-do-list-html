@@ -167,7 +167,7 @@
 
 
         <article id="perfilSettings" class="settings-page visible">
-          <!-- Seção de configuração de esolha da imagem do usuário -->
+          <!-- Seção de configuração de escolha da imagem do usuário -->
           <div class="profile-page__section">
             <h4 class="settings-page__title title-color">Sua foto de perfil</h4>
             <div class="profile">
@@ -255,26 +255,79 @@
           <!-- Cards de ajuda gerados com javascript -->
         </article>
         <article id="questionForm" class="help-page__question-form-section hidden">
-          <div class="question-form-page__header">
-            <h2 class="question-form-page__title">Preencha o formulário</h2>
-            <p class="question-form-page__description text-color">
-              Conte-nos sobre sua dúvida ou problema, nossa equipe responderá o mais breve possível. 
-              Todas as mensagens são confidenciais e protegidas!
+          <!--  Formulário de Pergunta gerado com javascript -->          
+        </article>
+        <article id="securityInfoSection" class="help-page__security-protection-section hidden">
+          <!-- Seção de segurança e proteção gerada com javascript -->
+        </article>
+        <article id="createTaskTutorial" class="help-page__task-tutorial-section">
+          <div class="taskTutorial-page__title-section">
+            <h3 class="taskTutorial-page__title title-color">Como criar uma tarefa:</h3>
+            <p class="taskTutorial-page__description text-color">
+              Siga o passo a passo abaixo para aprender a criar uma tarefa em nosso sistema de lista de tarefas:
             </p>
           </div>
+          <div class="task-tutorial__steps">
+            <div class="step">
+              <div class="step-header">
+                <span class="step-number">1</span>
+                <h4 class="step-title">Acesse o Painel de Tarefas</h4>
+              </div>
+              <p class="step-description text-color">
+                No menu principal, clique em "Dashboard" ou no ícone de tarefas <i class="bi bi-clipboard2-check"></i>. Você verá a lista de tarefas e o botão "Adicionar".
+              </p>
+              <img src="/assets/images/dashboard-placeholder.png" alt="Dashboard de Tarefas" class="step-image">
+              <button type="button" class="btn btn-details" data-original-text="Mais Detalhes">Mais Detalhes</button>
+              <div class="step-details hidden">
+                <p class="text-color">Certifique-se de estar logado. Nossa API usa tokens JWT para autenticação, então seu login é validado automaticamente. Se não vir o dashboard, cheque sua conexão ou reautentique em <a href="/login">Login</a>.</p>
+              </div>
+            </div>
 
-          <form action="" class="question-form-page__contact-form">
-            <label for="name" class="form-label">Nome Completo:</label>
-            <input type="text" class="form-input form__name" name="name" required>
-            <label for="email" class="form-label">E-mail:</label>
-            <input type="text" class="form-input form__email" name="email" required>
-            <label for="subject" class="form-label">Assunto:</label>
-            <input type="text" class="form-input form__name" name="subject" required>
-            <textarea id="message" name="message" class="form-input form-textarea" rows="5" 
-            placeholder="Descreva sua dúvida ou problema em detalhes..." required></textarea>
-            <button type="submit" class="btn btn-submit">Enviar Mensagem</button>
-          </form>
-          
+            <div class="step">
+              <div class="step-header">
+                <span class="step-number">2</span>
+                <h4 class="step-title">Clique em "Adicionar Tarefa"</h4>
+              </div>
+              <p class="step-description text-color">
+                Clique no botão <strong>"Adicionar Tarefa"</strong> (geralmente um ícone de + ou o texto "Nova Tarefa"). Isso abrirá o formulário de criação.
+              </p>
+              <img src="/assets/images/add-task-button-placeholder.png" alt="Botão Adicionar Tarefa" class="step-image">
+              <button type="button" class="btn btn-details" data-original-text="Mais Detalhes">Mais Detalhes</button>
+              <div class="step-details hidden">
+                <p class="text-color">O formulário é protegido por Spring Security. Apenas usuários autenticados podem criar tarefas. Se o botão não aparecer, verifique suas permissões no menu "Perfil".</p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="step-header">
+                <span class="step-number">3</span>
+                <h4 class="step-title">Preencha o Formulário</h4>
+              </div>
+              <p class="step-description text-color">
+                No formulário, insira o <strong>título</strong> (ex: "Reunião com equipe"), a <strong>descrição</strong> (detalhes da tarefa), e opcionalmente uma <strong>imagem</strong>. O status padrão é "Em andamento".
+              </p>
+              <img src="/assets/images/task-form-placeholder.png" alt="Formulário de Tarefa" class="step-image">
+              <button type="button" class="btn btn-details" data-original-text="Mais Detalhes">Mais Detalhes</button>
+              <div class="step-details hidden">
+                <p class="text-color">Exemplo: Título: "Estudo de Spring", Descrição: "Revisar anotações do curso de Spring Security". Imagens devem ser em formatos .jpg ou .png (máx. 2MB). A API valida os campos e retorna erro se estiverem vazios.</p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="step-header">
+                <span class="step-number">4</span>
+                <h4 class="step-title">Salve e Veja Sua Tarefa</h4>
+              </div>
+              <p class="step-description text-color">
+                Clique em "Criar Tarefa". A tarefa será enviada à nossa API (POST /api/tarefas) e aparecerá na lista do dashboard. Você pode editá-la ou marcá-la como concluída depois.
+              </p>
+              <img src="/assets/images/task-list-placeholder.png" alt="Lista de Tarefas" class="step-image">
+              <button type="button" class="btn btn-details" data-original-text="Mais Detalhes">Mais Detalhes</button>
+              <div class="step-details hidden">
+                <p class="text-color">A API usa HTTPS e JWT para garantir segurança. Após salvar, a tarefa é retornada com um ID único e aparece no dashboard. Erro? Verifique se o título tem pelo menos 3 caracteres e a descrição 5 (regras da API).</p>
+              </div>
+            </div>
+          </div>
         </article>
       </section>
     </main>

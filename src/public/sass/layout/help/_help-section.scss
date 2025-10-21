@@ -1,5 +1,7 @@
 @use '../../global/variables' as *;
 @use './question-page';
+@use './security-protection-section';
+@use './task-tutorial-section';
 
 .help-section {
     display: flex;
