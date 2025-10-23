@@ -225,12 +225,113 @@ export function setupSecurityAndProtectionSection(){
     `
 }
 
+export function setupCreateTaskTutorialSection(){
+    const stepData = [
+        {
+            step: "Primeiro Passo:",
+            title: "Acesse o Painel de Tarefas",
+            paragraph: "No menu principal, clique em 'Dashboard' ou no ícone de tarefas . Você verá a lista de tarefas e o botão 'Adicionar'.",
+            details: "Certifique-se de estar logado. Nossa API usa tokens JWT para autenticação, então seu login é validado automaticamente. Se não vir o dashboard, cheque sua conexão ou reautentique em <a href='/login'>Login</a>.",
+            image: "./img/help-page/dashboard-icone.png",
+            button: "Mais detalhes"
+        },
+        {
+            step: "Segundo Passo:",
+            title: "Clique em 'Adicionar Tarefa'",
+            paragraph: "No menu principal, clique em 'Dashboard' ou no ícone de tarefas . Você verá a lista de tarefas e o botão 'Adicionar'.",
+            details: "Clique no botão <strong>'Adicionar Tarefa'</strong> (geralmente um ícone de + ou o texto 'Nova Tarefa'). Isso abrirá o formulário de criação.",
+            image: "./img/help-page/add-task-img.png",
+            button: "Mais detalhes"
+        },
+        {
+            step: "Terceiro Passo:",
+            title: "Preencha o Formulário",
+            paragraph: "No formulário, insira o <strong>título</strong> (ex: 'Reunião com equipe'), a <strong>descrição</strong> (detalhes da tarefa), e opcionalmente uma <strong>imagem</strong>. O status padrão é 'Em andamento'.",
+            details: "Exemplo: Título: 'Estudo de Spring', Descrição: 'Revisar anotações do curso de Spring Security'. Imagens devem ser em formatos .jpg ou .png (máx. 2MB). A API valida os campos e retorna erro se estiverem vazios.",
+            image: "./img/help-page/add-task-img.png",
+            button: "Mais detalhes"
+        },
+        {
+            step: "Quarto passo:",
+            title: "Salve e Veja Sua Tarefa",
+            paragraph: "Clique em 'Criar Tarefa'. A tarefa será enviada à nossa API e aparecerá na lista do dashboard. Você pode editá-la ou marcá-la como concluída depois.",
+            details: "A API usa HTTPS e JWT para garantir segurança. Após salvar, a tarefa é retornada com um ID único e aparece no dashboard. Erro? Verifique se o título tem pelo menos 3 caracteres e a descrição 5 (regras da API).",
+            image: "./img/help-page/save-task.png",
+            button: "Mais detalhes"
+        }
+    ]
+
+    const stepsSection = document.getElementById('stepsSection');
+    const stepImage = document.querySelector('step-image');
+
+    if(!stepsSection) return;
+
+    stepsSection.innerHTML = '';
+
+    stepData.forEach((step, index) => {
+        const stepDiv = document.createElement('div');
+        stepDiv.classList.add('step');
+        stepDiv.setAttribute('data-step-index', index);
+
+        // Criando steps
+        stepDiv.innerHTML = `
+            <div class="step">
+            <div class="step-header">
+                <span class="step-number">${step.step}</span>
+                <h4 class="step-title">${step.title}</h4>
+            </div>
+                <p class="step-description text-color">${step.paragraph}</p>
+                <img src="${step.image}" alt="Dashboard de Tarefas" id="stepImage" class="step-image hidden">
+            <div class="step-details hidden">
+                <p class="text-color">Certifique-se de estar logado. Nossa API usa tokens JWT para autenticação, então seu login é validado automaticamente. Se não vir o dashboard, cheque sua conexão ou reautentique em <a href="/login">Login</a>.</p>
+            </div>
+            <button type="button" class="btn btn-details" data-original-text="Mais Detalhes" data-step-index=${index}>${step.button}</button>
+        </div>
+        `
+        stepsSection.appendChild(stepDiv);
+    });
+
+    const moreDetailsButtons = stepsSection.querySelectorAll('.btn-details');
+    moreDetailsButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const step = button.closest('.step');
+            const stepImage = step.querySelector('.step-image, .step-image-add-task, .step-image-save-task');
+            const moreDetails = step.querySelector('.step-details');
+            const stepIndex = parseInt(button.getAttribute('data-step-index'));
+            console.log('Clicado', stepIndex);
+
+            if (stepImage) {
+                if (stepIndex === 1) {
+                    stepImage.classList.remove('step-image')
+                    stepImage.classList.add('step-image-add-task');
+                } else if (stepIndex === 3) {
+                    stepImage.classList.remove('step-image')
+                    stepImage.classList.add('step-image-save-task');
+                }
+
+                // Oculta/mostra com toggle suave
+                stepImage.classList.toggle('hidden');
+            }
+
+            if (moreDetails) {
+                const isHidden = moreDetails.classList.contains('hidden');
+                moreDetails.classList.toggle('hidden', !isHidden);
+                button.textContent = isHidden ? 'Ver Menos' : 'Mais Detalhes';
+            }
+        });
+    });
+    
+}
+
 export function initializeHelpSection() {
     setupQuestionHelpSection();
     setupHelpTitleAndSuport();
     setupHelpCardSection();
     setupSendQuestionForm();
+
     setupSecurityAndProtectionSection();
+
+    setupCreateTaskTutorialSection();
 }
 
 document.addEventListener('DOMContentLoaded', () => {

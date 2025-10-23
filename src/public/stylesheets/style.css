@@ -1771,6 +1771,7 @@ li {
   border-radius: 8px;
   padding: 10px;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
 .help-page__task-tutorial-section .taskTutorial-page__title-section {
   margin-bottom: 15px;
@@ -1785,6 +1786,46 @@ li {
   gap: 15px;
   width: 100%;
   padding: 5px;
+}
+.help-page__task-tutorial-section .task-tutorial__steps .step {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+.help-page__task-tutorial-section .task-tutorial__steps .step .step-description {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+.help-page__task-tutorial-section .task-tutorial__steps .step .step-image:not(.hidden) {
+  width: 100%;
+  max-width: 150px;
+  height: 300px;
+  border-radius: 4px;
+}
+.help-page__task-tutorial-section .task-tutorial__steps .step .step-image-add-task {
+  width: 100%;
+  height: 150px;
+  border-radius: 4px;
+}
+.help-page__task-tutorial-section .task-tutorial__steps .step .step-image-save-task {
+  width: 100%;
+  height: 250px;
+  border-radius: 4px;
+}
+.help-page__task-tutorial-section .task-tutorial__steps .step .btn-details {
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--primary);
+  color: var(--text-color-2);
+  font-size: 0.9rem;
+  padding: 6px 12px;
+  width: fit-content;
+  transition: background-color 0.3s ease;
 }
 
 .help-section {
