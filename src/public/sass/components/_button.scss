@@ -15,10 +15,17 @@
     transform: scale(1.05);
 }
 
+// Botão do formulário para criar tarefas
+
 .task-submit-button {
     background-color: var(--primary);
     color: white;
     font-size: 0.8em;
+}
+
+.go-topic-button {
+    background-color: var(--primary);
+    color: #fff;
 }
 
 // Botão para salvar as ações escolhidas da página de interface

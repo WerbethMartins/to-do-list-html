@@ -45,7 +45,7 @@ function displayTasks(tasks) {
     cardTask.forEach(task => task.remove());
 
     // Cria um elemento para cada tarefa
-    tasks.forEach(task => {
+    tasks.forEach((task) => {
         const card = document.createElement('div');
         card.classList.add('card', 'card-task');
 
@@ -56,14 +56,48 @@ function displayTasks(tasks) {
         const createdDate = task.createdAt ? new Date(task.createdAt).toLocaleDateString('pt-BR') : 'sem data';
 
         card.innerHTML = `
-            <h3 class="card-title">${task.title || 'Título indefinido'}</h3>
-            <p class="card-description">${task.description || 'Descrição indefinida'}</p>
+            <div class="card-header">
+                <h3 class="card-title">${task.title || 'Título indefinido'}</h3>
+                <button class="more-btn">Ver mais</button>
+            </div>
+            <div class="completed-task-image-and-description-section">
+                <img ${task.image ? `src="${task.image}"` : ''} alt="Imagem da tarefa" class="completed-task-image">
+                <p class="completed-task-description">${task.description || 'Descrição indefinida'}</p>
+            </div>
+            <div class="card-topics">
+                <ul class="topic-list">
+                    ${task.topics && task.topics.length > 0
+                        ? task.topics.map(topic => `
+                            <li class="topic-item">
+                                <strong>${topic.title}</strong>
+                                ${topic.description ? `<p class="topic-description">${topic.description}</p>` : ''}
+                            </li>
+                        `).join('')
+                        : '<li class="topic-item no-topics">Nenhum tópico</li>'
+                    }
+                </ul>
+            </div>
             <div class="card-footer">
-                <p class="card-date">Criado em: ${createdDate}</p>
-                <p class="card-status">${task.completed ? 'Concluída' : 'Em progresso'}</p>
-                <button class="card-button" data-task-id="${task.id}">
-                    ${task.completed ? 'Desfazer' : 'Completar'}
-                </button>
+                <div class="status-date-section">
+                    <p class="card-date">Criado em: ${createdDate}</p>
+                    <div class="status-container">
+                        <p class="status-card-title">Status:</p>
+                        <p class="card-status">
+                            ${task.completed ? 'Concluída' : 'Em progresso'}
+                        </p>
+                    </div>
+                </div>
+                <div class="button-section">
+                    <button class="card-button completed-button" data-task-id="${task.id}">
+                        ${task.completed ? 'Desfazer' : 'Completar'}
+                    </button>
+                    <button class="card-button edit-button" data-task-id="${task.id}">
+                        ${task.edit ? 'Desfazer' : 'Editar'} 
+                    </button>
+                    <button class="card-button cancel-button" data-task-id="${task.id}">
+                        ${task.cancelled ? 'Desfazer' : 'Cancelar'}
+                    </button>
+                </div>
             </div>               
         `;
 
@@ -109,19 +143,22 @@ export function setupTaskForm() {
             // Pega os valores do formulário usando os IDs
             const title = document.getElementById('taskTitle').value.trim();
             const description = document.getElementById('taskDescription').value.trim();
+            const image = document.getElementById('taskImage').files[0];
 
             if (title && description) {
                 const newTaskData = {
                     title: title,
                     description: description,
-                    completed: false  
+                    completed: false,
+                    topics: topics.map(item => ({
+                        title: item.topic, // Mapeia 'topic' para title
+                        description: item.description
+                    }))
                 }
-
                 postTask(newTaskData);
             } else {
                 alert('Preencha título e descrição!');
             }
-            
             taskForm.reset(); 
         });
     }
