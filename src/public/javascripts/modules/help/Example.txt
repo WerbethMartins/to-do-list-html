@@ -1,0 +1,121 @@
+const cardData = [
+        { 
+            icon: "bi bi-envelope-arrow-up", 
+            title: "Envie-nos uma pergunta", 
+            description: "Nossa equipe está pronta para te ajudar! Envie sua pergunta e entraremos em contato o quanto antes.", 
+            button: "Enviar Pergunta"
+        },
+        {
+            icon: "bi bi-shield-check", 
+            title: "Segurança e Proteção", 
+            description: "Mantemos suas informações protegidas com criptografia e práticas de segurança atualizadas.",
+            description2: "Aqui você pode saber mais sobre como cuidamos dos seus dados e garantir uma experiência segura.",
+            button: "Ver Mais",
+            button2: "Informações de Segurança"
+        },
+        {
+            icon: "bi bi-clipboard2-check", 
+            title: "Criar tarefas", 
+            description: "Precisa de ajuda para adicionar ou gerenciar suas tarefas? Vamos te ajudar com isso.", 
+            description2: "Clique no botão abaixo para ver as instruções detalhadas sobre como criar e organizar suas tarefas de forma eficiente.",
+            button: "Ver Mais",
+            button2: "Instruções de Tarefas"
+        }
+    ];
+
+    const questionSection = document.querySelector('.help-page__cards-section');
+    const questionForm = document.getElementById('questionForm');
+    const securityInfoSection = document.getElementById('securityInfoSection');
+
+    if (!questionSection) return;
+
+    questionSection.innerHTML = '';
+
+    cardData.forEach((card, index) => {
+        const cardDiv = document.createElement('div');
+        cardDiv.classList.add('cards-section');
+        cardDiv.classList.add('help-card');
+        cardDiv.setAttribute('data-card-index', index);
+    
+        // Condicional pro botão2
+        const button2HTML = card.button2 ? `<button type="button" class="btn btn-more-information" data-card-index="${index}">${card.button2}</button>` : '';
+        const description2HTML = card.description2 
+            ? `<p class="help-page__card-description card-description2 hidden">${card.description2}</p>` 
+            : '';
+        
+        cardDiv.innerHTML = `
+            <i class="${card.icon} help-page__card-icon"></i>
+            <h4 class="help-page__card-title">${card.title}</h4>
+            <p class="help-page__card-description">${card.description}</p>
+            ${description2HTML}
+            <div class="help-page__card-button-section">
+                <button type="button" class="btn btn-more" data-button="${card.button.toLowerCase().replace(/\s/g, '-')}" data-card-index="${index}">${card.button}</button>
+                ${button2HTML}
+            </div>
+        `;
+
+        
+        questionSection.appendChild(cardDiv);
+
+
+        stepsSection.innerHTML = `
+        <div class="step">
+            <div class="step-header">
+                <span class="step-number">Primeiro passo:</span>
+                <h4 class="step-title">Acesse o Painel de Tarefas</h4>
+            </div>
+                <p class="step-description text-color">
+                No menu principal, clique em "Dashboard" ou no ícone de tarefas <i class="bi bi-clipboard2-check"></i>. Você verá a lista de tarefas e o botão "Adicionar".
+                </p>
+                <img src="./img/help-page/dashboard-icone.png" alt="Dashboard de Tarefas" class="step-image hidden">
+                <button type="button" class="btn btn-details" data-original-text="Mais Detalhes">Mais Detalhes</button>
+            <div class="step-details hidden">
+                <p class="text-color">Certifique-se de estar logado. Nossa API usa tokens JWT para autenticação, então seu login é validado automaticamente. Se não vir o dashboard, cheque sua conexão ou reautentique em <a href="/login">Login</a>.</p>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-header">
+                <span class="step-number">Segundo passo:</span>
+                <h4 class="step-title">Clique em "Adicionar Tarefa"</h4>
+            </div>
+                <p class="step-description text-color">
+                    Clique no botão <strong>"Adicionar Tarefa"</strong> (geralmente um ícone de + ou o texto "Nova Tarefa"). Isso abrirá o formulário de criação.
+                </p>
+                <img src="./img/help-page/add-task-img.png" alt="Botão Adicionar Tarefa" class="step-image-add-task  hidden">
+                <button type="button" class="btn btn-details" data-original-text="Mais Detalhes">Mais Detalhes</button>
+            <div class="step-details hidden">
+                <p class="text-color">O formulário é protegido por Spring Security. Apenas usuários autenticados podem criar tarefas. Se o botão não aparecer, verifique suas permissões no menu "Perfil".</p>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-header">
+                <span class="step-number">Terceiro passo:</span>
+                <h4 class="step-title">Preencha o Formulário</h4>
+                </div>
+                <p class="step-description text-color">
+                    No formulário, insira o <strong>título</strong> (ex: "Reunião com equipe"), a <strong>descrição</strong> (detalhes da tarefa), e opcionalmente uma <strong>imagem</strong>. O status padrão é "Em andamento".
+                </p>
+                <img src="/assets/images/task-form-placeholder.png" alt="Formulário de Tarefa" class="step-image ">
+                <button type="button" class="btn btn-details" data-original-text="Mais Detalhes">Mais Detalhes</button>
+            <div class="step-details hidden">
+                <p class="text-color">Exemplo: Título: "Estudo de Spring", Descrição: "Revisar anotações do curso de Spring Security". Imagens devem ser em formatos .jpg ou .png (máx. 2MB). A API valida os campos e retorna erro se estiverem vazios.</p>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-header">
+                <span class="step-number">Quarto passo:</span>
+                <h4 class="step-title">Salve e Veja Sua Tarefa</h4>
+            </div>
+                <p class="step-description text-color">
+                    Clique em "Criar Tarefa". A tarefa será enviada à nossa API e aparecerá na lista do dashboard. Você pode editá-la ou marcá-la como concluída depois.
+                </p>
+                <img src="./img/help-page/save-task.png" alt="Lista de Tarefas" class="step-image-save-task hidden">
+                <button type="button" class="btn btn-details" data-original-text="Mais Detalhes">Mais Detalhes</button>
+            <div class="step-details hidden">
+                <p class="text-color">A API usa HTTPS e JWT para garantir segurança. Após salvar, a tarefa é retornada com um ID único e aparece no dashboard. Erro? Verifique se o título tem pelo menos 3 caracteres e a descrição 5 (regras da API).</p>
+            </div>
+        </div>
+    `

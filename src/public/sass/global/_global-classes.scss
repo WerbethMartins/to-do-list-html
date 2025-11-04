@@ -1,4 +1,5 @@
 @use './variables' as *;
+@use '../components/animation';
 
 // Classe de cores
 .primary-color {
@@ -33,4 +34,18 @@
 
 .visible {
     display: flex !important;
+}
+
+// Messagem de erro.
+.error_message {
+    color: red;
+}
+
+// Classe para animações e efeitos
+.slideLeft{
+    animation: fadeLeft 0.5s ease-in;
+}
+
+.slideRight {
+    animation: fadeRight 0.5s ease-in;
 }

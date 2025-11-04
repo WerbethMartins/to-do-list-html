@@ -2,6 +2,7 @@
 @use '../global/mixins.scss' as *;
 
 .card {
+    font-size: 0.9rem;
     @include cardTarefa;
 
     & .card-header {
@@ -34,12 +35,78 @@
         }
     }
 
-    & .card-image {
+    & .task-image-and-description-section {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 5px;
+        padding: 5px;
         width: 100%;
-        max-width: 70px;
-        height: auto;
-        border-radius: 5px;
+        box-sizing: border-box;
+
+        & .card-image {
+            border-radius: 5px;
+            width: 195px;
+            height: 150px;
+            margin: 5px 0;
+        }
+
+        & .task-description {
+            width: 50%;
+        }
+    }
+
+    & .card-topics {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
         margin: 5px 0;
+
+        & .card-topics__title {
+            color: var(--primary);
+        }
+
+        & .description-section__arrows {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            & .topic-item__arrow {
+                font-size: 1.5rem;
+                margin: 5px;
+                transition: all 0.5s ease;
+
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+        }
+
+        & .topic-list {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 6px 10px;
+            width: 100%;
+
+            & .topic-item {
+                margin: 5px 0;
+
+                & .topic-item__description-section {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    align-items: center;
+
+                    & .topic-description {
+                        margin: 5px 10px;
+                    }
+                }
+            }
+        }
     }
 
     & .card-description {
@@ -93,7 +160,7 @@
 
             & .card-button {
                 cursor: pointer;
-                color: #fff;
+                color: var(--text-color-2);
                 border: none;
                 border-radius: 5px;
                 padding: 5px 10px;
