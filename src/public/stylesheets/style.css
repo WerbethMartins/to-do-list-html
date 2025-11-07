@@ -1202,39 +1202,95 @@ li {
   gap: 5px;
   width: 100%;
 }
+.task-completed-panel .completed-card .completed-tasks-list .completed-title-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.task-completed-panel .completed-card .completed-tasks-list .completed-title-section .completed-task-title {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.task-completed-panel .completed-card .completed-tasks-list .completed-title-section .completed-task-more-btn {
+  border: none;
+  background-color: #e91e63;
+  color: #f8f9fa;
+}
 .task-completed-panel .completed-card .completed-tasks-list .completed-task-image-and-description-section {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   gap: 10px;
 }
-.task-completed-panel .completed-card .completed-tasks-list .completed-task-image-and-description-section .completed-task-title {
-  font-size: 1em;
-  font-weight: bold;
-  color: #333;
-}
 .task-completed-panel .completed-card .completed-tasks-list .completed-task-image-and-description-section .completed-task-image {
-  width: 50%;
-  max-width: 70px;
-  height: auto;
+  width: 195px;
+  height: 150px;
   border-radius: 5px;
   margin: 5px 0;
 }
-.task-completed-panel .completed-card .completed-tasks-list .completed-task-item {
+.task-completed-panel .completed-card .completed-tasks-list .completed-task-image-and-description-section .completed-task-description {
+  font-size: 1rem;
+}
+.task-completed-panel .completed-card .completed-tasks-list .completed-task-topics {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 5px 0;
+}
+.task-completed-panel .completed-card .completed-tasks-list .completed-task-topics .completed-task-title {
+  color: var(--primary);
+}
+.task-completed-panel .completed-card .completed-tasks-list .completed-task-topics .topic-list {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 6px 10px;
   width: 100%;
 }
-.task-completed-panel .completed-card .completed-tasks-list .completed-task-item .completed-task-details {
+.task-completed-panel .completed-card .completed-tasks-list .completed-task-topics .topic-list .topic-item {
+  margin: 5px 0;
+}
+.task-completed-panel .completed-card .completed-tasks-list .completed-task-topics .topic-list .topic-item .topic-item__description-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.task-completed-panel .completed-card .completed-tasks-list .completed-task-topics .topic-list .topic-item .topic-item__description-section .topic-description {
+  margin: 5px 10px;
+}
+.task-completed-panel .completed-card .completed-tasks-list .completed-task-topics .completed-description-section__arrows {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.task-completed-panel .completed-card .completed-tasks-list .completed-task-topics .completed-description-section__arrows .topic-item__arrow {
+  font-size: 1.5rem;
+  margin: 5px;
+  transition: all 0.5s ease;
+}
+.task-completed-panel .completed-card .completed-tasks-list .completed-task-topics .completed-description-section__arrows .topic-item__arrow:hover {
+  transform: scale(1.1);
+}
+.task-completed-panel .completed-card .completed-tasks-list .completed-task-details {
   display: flex;
   flex-direction: row;
   gap: 10px;
 }
-.task-completed-panel .completed-card .completed-tasks-list .completed-task-item .completed-task-details .completed-task-date {
+.task-completed-panel .completed-card .completed-tasks-list .completed-task-details .completed-task-date {
   font-size: 0.8em;
   color: #666;
 }
-.task-completed-panel .completed-card .completed-tasks-list .completed-task-item .completed-task-details .completed-task-completed {
+.task-completed-panel .completed-card .completed-tasks-list .completed-task-details .completed-task-completed {
   font-size: 0.8em;
-  color: #87f861;
+  color: #000000;
+}
+.task-completed-panel .completed-card .completed-tasks-list .completed-task-details .completed-task-completed span {
+  color: #82f473;
 }
 
 .main-title {

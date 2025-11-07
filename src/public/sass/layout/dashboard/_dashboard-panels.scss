@@ -125,44 +125,111 @@
             gap: 5px;
             width: 100%;
 
-            & .completed-task-image-and-description-section {
+            & .completed-title-section {
                 display: flex;
                 flex-direction: row;
+                justify-content: space-between;
                 align-items: center;
-                gap: 10px;
 
                 & .completed-task-title {
-                    font-size: 1em;
+                    font-size: 1.2em;
                     font-weight: bold;
-                    color: #333;
                 }
 
-                & .completed-task-image {
-                    width: 50%;
-                    max-width: 70px;
-                    height: auto;
-                    border-radius: 5px;
-                    margin: 5px 0;
+                & .completed-task-more-btn {
+                    border: none;
+                    background-color: $primary;
+                    color: #f8f9fa;
                 }
             }
 
-           & .completed-task-item {
-                width: 100%;
+            & .completed-task-image-and-description-section {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: flex-start;
+                gap: 10px;
 
-                 & .completed-task-details {
+                & .completed-task-image {
+                    width: 195px;
+                    height: 150px;
+                    border-radius: 5px;
+                    margin: 5px 0;
+                }
+
+                & .completed-task-description {
+                    font-size: 1rem;
+                }
+            }
+
+            & .completed-task-topics {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                margin: 5px 0;
+
+                & .completed-task-title {
+                    color: var(--primary);
+                }
+
+                & .topic-list {
                     display: flex;
-                    flex-direction: row;
-                    gap: 10px;
+                    flex-direction: column;
+                    border: 1px solid var(--border-color);
+                    border-radius: 8px;
+                    padding: 6px 10px;
+                    width: 100%;
 
-                     & .completed-task-date {
-                        font-size: 0.8em;
-                        color: #666;
-                    }
+                    & .topic-item {
+                    margin: 5px 0;
 
-                    & .completed-task-completed {
-                        font-size: 0.8em;
-                        color: #87f861;
+                        & .topic-item__description-section {
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: flex-start;
+                            align-items: center;
+
+                            & .topic-description {
+                                margin: 5px 10px;
+                            }
+                        }
                     }
+                }
+
+                & .completed-description-section__arrows {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    & .topic-item__arrow {
+                        font-size: 1.5rem;
+                        margin: 5px;
+                        transition: all 0.5s ease;
+
+                        &:hover {
+                            transform: scale(1.1);
+                        }
+                    }
+                }
+            }
+
+            & .completed-task-details {
+                display: flex;
+                flex-direction: row;
+                gap: 10px;
+
+                & .completed-task-date {
+                    font-size: 0.8em;
+                    color: #666;
+                }
+
+                & .completed-task-completed {
+                    font-size: 0.8em;
+                    color: #000000;
+                }
+                .completed-task-completed span {
+                    color: #82f473;
                 }
             }
         }

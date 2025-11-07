@@ -67,6 +67,35 @@ export async function postTask(taskData) {
     }
 }
 
+// Função para atualizar o status 'completed' no backend
+async function toggleTaskCompleted(taskId, currentStatus){
+    const newStatus = !currentStatus; // Inverte o status atual (true vira false, false vira true)
+
+    try {
+        const response = await fetch(`http://localhost:8081/api/tarefas/${taskId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            // Envia apenas o campo 'completed' atualizado
+            body: JSON.stringify({ completed: newStatus }) 
+        });
+
+        if (!response.ok) {
+            console.error(`Erro ao atualizar status da tarefa ${taskId}. Status:`, response.status);
+            alert('Erro ao atualizar o status da tarefa. Tente novamente.');
+            return false;
+        }
+
+        console.log(`✅ Tarefa ${taskId} atualizada para completed: ${newStatus}`);
+        return true; // Sucesso na atualização
+
+    } catch (error) {
+        console.error('Erro de rede ao concluir/desfazer tarefa:', error);
+        return false;
+    }
+}
+
 // Função para exibir as tarefas na página (lista principal)
 function displayTasks(tasks) {
     const tasksContainer = document.querySelector('.dashboard-task-panel');
@@ -77,8 +106,11 @@ function displayTasks(tasks) {
     const cardTask = document.querySelectorAll('.card-task');
     cardTask.forEach(task => task.remove());
 
+    // 🎯 FILTRAGEM: Exibir apenas tarefas "Em progresso" 🎯
+    const tasksInProgress = tasks.filter(task => !task.completed && !task.cancelled);
+
     // Cria um elemento para cada tarefa
-    tasks.forEach((task) => {
+    tasksInProgress.forEach((task) => {
         const card = document.createElement('div');
         card.classList.add('card', 'card-task');
 
@@ -104,7 +136,7 @@ function displayTasks(tasks) {
             <div class="card-topics">
                 <h3 class="card-topics__title">Tópicos:</h3>
 
-                <ul class="topic-list">
+                <ul class="topic-list hidden">
                     ${task.topics && task.topics.length > 0
                         ? task.topics.map(topic => `
                             <li class="topic-item">
@@ -149,6 +181,24 @@ function displayTasks(tasks) {
 
         tasksContainer.appendChild(card);
 
+        const completedButton = card.querySelector('.completed-button');
+
+        if (completedButton) {
+            completedButton.addEventListener('click', async () => {
+                const taskId = completedButton.dataset.taskId; // Obtém o ID do atributo data-task-id
+                const currentTask = tasks.find(t => t.id == taskId); // Encontra a tarefa atual
+
+                if (!currentTask) return;
+
+                // 2. Chama a função de atualização da API
+                const success = await toggleTaskCompleted(taskId, currentTask.completed);
+
+                if (success) {
+                    await fetchTasks(); 
+                }
+            });
+        }
+
         // Configuração da visibilidade da seção de tópicos (Ver mais/Ver menos)
         const topicList = card.querySelector('.topic-list');
         const moreBtn = card.querySelector('.more-btn');
@@ -175,69 +225,6 @@ function displayTasks(tasks) {
     });
 }
 
-// Função responsavel pela visibilidáde dos tópicos
-function setupTopicNavigation(cardElement){
-    const topicItems = cardElement.querySelectorAll('.topic-item');
-
-    if(topicItems.length <= 1){
-        return;
-    }
-
-    let currentIndex = 0;
-
-    // 1.Inicializa: Esconde todos, exceto o primeiro
-    topicItems.forEach((item, index) => {
-        setTimeout(() => {
-            if (index > 0) {
-                item.classList.add('hidden');
-                item.classList.add('slideLeft');
-            } else {
-                // O primeiro item (índice 0) é visível
-                item.classList.remove('hidden');
-                item.classList.add('slideRight');
-            }
-        }, 2000); // 2 segundo (2000 ms)
-    });     
-
-    function updateVisibility(newIndex) {
-        // Garante que o índice esteja dentro dos limites
-        if (newIndex >= 0 && newIndex < topicItems.length) {
-            // Esconde o atual
-            topicItems[currentIndex].classList.add('hidden');
-            
-            // Atualiza e mostra o novo
-            currentIndex = newIndex;
-            topicItems[currentIndex].classList.remove('hidden');
-
-            // Lógica para mostrar/esconder as setas
-            const leftArrow = cardElement.querySelector('.bi-arrow-left-circle-fill');
-            const rightArrow = cardElement.querySelector('.bi-arrow-right-circle-fill');
-            
-            // Se for o primeiro, esconde a seta esquerda
-            if (currentIndex === 0) {
-                 leftArrow.classList.add('hidden');
-            } else {
-                 leftArrow.classList.remove('hidden');
-            }
-
-            // Se for o último, esconde a seta direita
-            if (currentIndex === topicItems.length - 1) {
-                 rightArrow.classList.add('hidden');
-            } else {
-                 rightArrow.classList.remove('hidden');
-            }
-        }
-    } 
-
-    // Adiciona event listeners nas setas
-    cardElement.querySelector('.bi-arrow-right-circle-fill').addEventListener('click', () => {
-        updateVisibility(currentIndex + 1);
-    });
-
-    cardElement.querySelector('.bi-arrow-left-circle-fill').addEventListener('click', () => {
-        updateVisibility(currentIndex - 1);
-    });
-}
 
 // Upload de imagem local (para o servidor Spring Boot)
 async function uploadLocal(imageFile) {
@@ -256,7 +243,7 @@ async function uploadLocal(imageFile) {
     });
 
     if (!response.ok) {
-        // 2. Se a resposta HTTP for um erro (ex: 500), retorna null
+        // Se a resposta HTTP for um erro (ex: 500), retorna null
         console.error('❌ Erro no upload local. Status:', response.status);
         return null; 
     }
@@ -384,6 +371,7 @@ export function setupTaskInformationPanel(tasks) {
     `
 }
 
+// Configuração do painel de tarefas concluidas
 export function setupTaskCompletedPanel(tasks) {
     const completedTasks = tasks ? tasks.filter(task => task.completed) : [];
     
@@ -404,15 +392,16 @@ export function setupTaskCompletedPanel(tasks) {
 
     // Lista de tarefas completadas
     completedTasks.forEach(task => {
-        const cardElement = document.createElement('div');
-        cardElement.classList.add('completed-task-item', 'card', 'card-task');
+        const card = document.createElement('div');
+        card.classList.add('completed-tasks-list', 'card', 'card-task');
         
         // Data fallback
         const taskDate = task.createdAt ? new Date(task.createdAt).toLocaleDateString('pt-BR') : 'sem data';
 
-        cardElement.innerHTML = `
+        card.innerHTML = `
             <div class="completed-title-section">
                 <p class="completed-task-title">${task.title || 'Título indefinido'}</p>
+                <button class="btn completed-task-more-btn">Ver mais</button>
             </div> 
 
             <div class="completed-task-image-and-description-section">
@@ -420,13 +409,123 @@ export function setupTaskCompletedPanel(tasks) {
                 <p class="completed-task-description">${task.description || 'Descrição indefinida'}</p>
             </div>
 
+            <div class="completed-task-topics">
+                <h3 class="completed-task-title">Tópicos:</h3>
+                <ul class="topic-list hidden">
+                    ${task.topics && task.topics.length > 0
+                        ? task.topics.map(topic => `
+                            <li class="topic-item">
+                                <strong>${topic.title}</strong>
+                                <div class="topic-item__description-section">
+                                    ${topic.description ? `<p class="topic-description">* ${topic.description}</p>` : ''}
+                                </div>
+                            </li>
+                        `).join('')
+                        : '<li class="topic-item no-topics">Nenhum tópico</li>'
+                    }
+                </ul>
+
+                <div class="completed-description-section__arrows">
+                    <i class="bi bi-arrow-left-circle-fill topic-item__arrow hidden"></i>
+                    <i class="bi bi-arrow-right-circle-fill topic-item__arrow"></i>
+                </div>
+            </div>
+
             <div class="completed-task-details">
                 <p class="completed-task-date">${taskDate}</p>
-                <p class="completed-task-completed">Concluída</p>
+                <p class="completed-task-completed">Status: <span>Concluída</span></p>
             </div>
         `
 
-        taskCompletedCard.appendChild(cardElement);
+        taskCompletedCard.appendChild(card);
+
+        const moreButton = card.querySelector('.completed-task-more-btn');
+        const topicList = card.querySelector('.topic-list');
+        const arrow = card.querySelector('.completed-description-section__arrows');
+
+        if(moreButton && topicList){
+            moreButton.addEventListener('click', () => {
+                const isHidden = topicList.classList.contains('hidden');
+                moreButton.textContent = isHidden ? 'Ver menos' : 'Ver mais';
+                
+                topicList.classList.toggle('hidden', !isHidden);
+                topicList.classList.toggle('visible', isHidden);
+
+                if(topicList.classList.contains('hidden')){
+                    arrowSection.classList.add('hidden');
+                    arrowSection.classList.remove('visible');
+                } else {
+                    arrowSection.classList.add('visible');
+                    arrowSection.classList.remove('hidden');
+                }
+            });
+        }
+
+        setupTopicNavigation(card);
+    });
+}
+
+// Função responsavel pela visibilidáde dos tópicos
+function setupTopicNavigation(cardElement){
+    const topicItems = cardElement.querySelectorAll('.topic-item');
+
+    if(topicItems.length <= 1){
+        return;
+    }
+
+    let currentIndex = 0;
+
+    // 1.Inicializa: Esconde todos, exceto o primeiro
+    topicItems.forEach((item, index) => {
+        setTimeout(() => {
+            if (index > 0) {
+                item.classList.add('hidden');
+                item.classList.add('slideLeft');
+            } else {
+                // O primeiro item (índice 0) é visível
+                item.classList.remove('hidden');
+                item.classList.add('slideRight');
+            }
+        }, 2000); // 2 segundo (2000 ms)
+    });     
+
+    function updateVisibility(newIndex) {
+        // Garante que o índice esteja dentro dos limites
+        if (newIndex >= 0 && newIndex < topicItems.length) {
+            // Esconde o atual
+            topicItems[currentIndex].classList.add('hidden');
+            
+            // Atualiza e mostra o novo
+            currentIndex = newIndex;
+            topicItems[currentIndex].classList.remove('hidden');
+
+            // Lógica para mostrar/esconder as setas
+            const leftArrow = cardElement.querySelector('.bi-arrow-left-circle-fill');
+            const rightArrow = cardElement.querySelector('.bi-arrow-right-circle-fill');
+            
+            // Se for o primeiro, esconde a seta esquerda
+            if (currentIndex === 0) {
+                 leftArrow.classList.add('hidden');
+            } else {
+                 leftArrow.classList.remove('hidden');
+            }
+
+            // Se for o último, esconde a seta direita
+            if (currentIndex === topicItems.length - 1) {
+                 rightArrow.classList.add('hidden');
+            } else {
+                 rightArrow.classList.remove('hidden');
+            }
+        }
+    } 
+
+    // Adiciona event listeners nas setas
+    cardElement.querySelector('.bi-arrow-right-circle-fill').addEventListener('click', () => {
+        updateVisibility(currentIndex + 1);
+    });
+
+    cardElement.querySelector('.bi-arrow-left-circle-fill').addEventListener('click', () => {
+        updateVisibility(currentIndex - 1);
     });
 }
 
